@@ -1,4 +1,8 @@
 # suunta
 Ohjelmistoprojekti I, feedback-kysely
 
-![alt text](documents/Wave-HD-Images-03782.jpg)
+
+### Harjoitusvaiheen suunniteludokumentit:
+[Käsitekaavio](documents/SWD4TN022-4_Suunta_kasitekaavio.vsdx)
+[Luokkakaavio (Java-kaavio)](documents/SWD4TN022-4_Suunta_luokkakaavio.vsdx)
+[Relaatiokaavio](documents/SWD4TN022-4_Suunta_relaatiokaavio.vsdx)
