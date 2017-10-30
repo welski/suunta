@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,18 +21,26 @@ public class KyselyController {
 	@Inject
 	KyselyDAO dao;
 
-	// Kaikkien kyselyiden haku JSON-muodossa
+	// REST, Kaikkien kyselyiden haku JSON-muodossa
 	@RequestMapping(value = "kyselyt.json", method = RequestMethod.GET)
 	public @ResponseBody List<Kysely> haeKyselytJSON() {
 		List<Kysely> kyselyt = dao.haeKaikki();
 		return kyselyt;
 	}
 
-	// Uuden kyselyn luonti
+	// REST, Uuden kyselyn luonti
 	@RequestMapping(value = "kyselyt", method = RequestMethod.POST)
 	public @ResponseBody Kysely luoKysely(@RequestBody Kysely kysely) {
 		dao.luoUusi(kysely);
 		return kysely;
+	}
+	
+	// JSP, Uuden kyselyn luonti
+	@RequestMapping(value="hallinta/kyselyt", method=RequestMethod.POST)
+	public String luoUusiKysely(Model model, @ModelAttribute(value="kysely") Kysely kysely) {
+		model.addAttribute("kysely", kysely);
+		dao.luoUusi(kysely);
+		return "redirect:/hallinta/kyselyt";
 	}
 
 	// Kyselylista testaukseen
@@ -39,7 +48,7 @@ public class KyselyController {
 	public String naytaKyselylista(Model model) {
 		List<Kysely> kyselyt = dao.haeKaikki();
 		model.addAttribute("kyselyt", kyselyt);
-		return "hallinta/kyselylista";
+		return "hallinta/kyselyt";
 	}
 	
 	// Yhden kyselyn haku

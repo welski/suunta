@@ -56,6 +56,22 @@
 		</table>
 		</div>
 
+	<form:form modelAttribute="kysely" method="post">
+		<div class="form-group">
+			<label for="nimi">Nimi</label>
+			<input type="text" class="form-control" name="nimi" value=""/>
+		</div>
+		<div class="form-group">
+			<label for="nimi">Kuvaus</label>
+			<input type="text" class="form-control" name="kuvaus" value=""/>
+		</div>
+		<div class="form-group">
+			<input type="submit" class="btn btn-primary" value="Lisää" />
+			<input type="reset" class="btn btn-danger" value="Tyhjennä" />
+		</div>
+
+	</form:form>
+
 	</div>
 </body>
 </html>

@@ -1,11 +1,17 @@
 package backend.dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.inject.Inject;
 
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
 import backend.bean.Kysely;
@@ -44,8 +50,24 @@ public class KyselyDAO implements KyselyDAOInterface {
 	}
 
 	public void luoUusi(Kysely kysely) {
-		// TODO Auto-generated method stub
+		final String sql = "INSERT INTO kysely (nimi, kuvaus) VALUES (?, ?)";
+		final String nimi = kysely.getNimi();
+		final String kuvaus = kysely.getKuvaus();
 		
+		KeyHolder idHolder = new GeneratedKeyHolder();
+		
+		jdbcTemplate.update(new PreparedStatementCreator() {
+			
+			@Override
+			public PreparedStatement createPreparedStatement(Connection connection) throws SQLException {
+				PreparedStatement preSta = connection.prepareStatement(sql, new String[] { "nimi", "kuvaus" });
+				preSta.setString(1, nimi);
+				preSta.setString(2, kuvaus);
+				return preSta;
+			}
+		}, idHolder);
+		
+		kysely.setId(idHolder.getKey().intValue());
 	}
 
 }
