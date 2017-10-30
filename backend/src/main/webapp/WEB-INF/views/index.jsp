@@ -21,6 +21,10 @@
 			<h4>Backend</h4>
 		</div>
 	</div>
+	
+	<div class="row">
+		<a href="hallinta/kyselyt">kyselyt</a>
+	</div>
 
 </div>
 </body>

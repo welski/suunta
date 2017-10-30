@@ -1,17 +1,42 @@
 package backend.bean;
 
-public interface Kysely {
+import backend.bean.KyselyInterface;
 
-	public abstract int getId();
+public class Kysely implements KyselyInterface {
 
-	public abstract void setId(int id);
+	private int id;
+	private String nimi;
+	private String kuvaus;
+	
+	public int getId() {
+		return id;
+	}
 
-	public abstract String getNimi();
+	public void setId(int id) {
+		this.id = id;
+	}
 
-	public abstract void setNimi(String nimi);
+	public String getNimi() {
+		return nimi;
+	}
 
-	public abstract String getKuvaus();
+	public void setNimi(String nimi) {
+		this.nimi = nimi;
+	}
 
-	public abstract void setKuvaus(String kuvaus);
+	public String getKuvaus() {
+		return kuvaus;
+	}
 
+	public void setKuvaus(String kuvaus) {
+		this.kuvaus = kuvaus;
+	}
+	
+	@Override
+	public String toString() {
+		return "KyselyImpl [id=" + id + ", nimi=" + nimi + ", kuvaus="
+				+ kuvaus + "]";
+	}
+	
+	
 }
