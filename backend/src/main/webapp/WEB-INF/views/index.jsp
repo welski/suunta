@@ -26,7 +26,10 @@
 	<div class="row">
 		<a href="hallinta/kyselyt">kyselyt</a>
 	</div>
-
+	<div class="row">
+		<a href="kyselyt.json">kyselyt JSON</a>
+	</div>
+	
 </div>
 </body>
 </html>
