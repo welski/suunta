@@ -17,7 +17,7 @@ import org.springframework.stereotype.Repository;
 import backend.bean.Kysely;
 
 @Repository
-public class KyselyDAO implements KyselyDAOInterface {
+public class KyselyDAO {
 	
 	@Inject
 	private JdbcTemplate jdbcTemplate;
