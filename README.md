@@ -60,4 +60,4 @@ DELETE | /kysymykset/{kysymysId} | - | - | Status: 400 | Toiminto ei käytössä
 
 * [Käsitekaavio](documents/SWD4TN022-4_Suunta_kasitekaavio.vsdx) *Päivitetty 6.11.2017 (Kaikki)*
 * [Luokkakaavio (Java-kaavio)](documents/SWD4TN022-4_Suunta_luokkakaavio.vsdx) *Päivitetty 8.11.2017 (Mikko)*
-* [Relaatiokaavio](documents/SWD4TN022-4_Suunta_relaatiokaavio.vsdx) *Päivitetty 6.11.2017 (Kaikki)* !!! vaatii muokkausta
+* [Relaatiokaavio](documents/SWD4TN022-4_Suunta_relaatiokaavio.vsdx) *Päivitetty 8.11.2017 (Mikko)*
