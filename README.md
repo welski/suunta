@@ -8,10 +8,10 @@ Päivitetty 8.11.2017 (Mikko, Marion)
 
 ## Sisältö
 
-1. Resurssit
-2. Resurssien esitys JSON-muodossa
-3. Resurssien osoitteet/URIt 
-4. Resurssien toiminnot
+[1. Resurssit](https://github.com/welski/suunta#1-resurssit-resouces)
+[2. Resurssien esitys JSON-muodossa](https://github.com/welski/suunta#2-resurssien-esitys-json-muodossa-resource-representations)
+[3. Resurssien osoitteet/URIt](https://github.com/welski/suunta#3-resurssien-osoitteeturit-endpoints-of-resources)
+[4. Resurssien toiminnot](https://github.com/welski/suunta#4-resurssien-toiminnot-actions-of-resources)
 
 ## 1. Resurssit (Resouces)
 
@@ -25,16 +25,17 @@ Kysymykset | Collection, kokoelma Kysymyksiä
 
 ## 2. Resurssien esitys JSON-muodossa (Resource Representations)
 
+todo
 
 
 ## 3. Resurssien osoitteet/URIt (EndPoints of Resources)
 
 ### Kysely
-http://proto331.haaga-helia.fi:8080/backend/kyselyt
+http://proto331.haaga-helia.fi:8080/backend/kyselyt<br/>
 http://proto331.haaga-helia.fi:8080/backend/kyselyt/{kyselyId}
 
 ### Kysymys
-http://proto331.haaga-helia.fi:8080/backend/kyselyt/{kyselyId}/kysymykset/
+http://proto331.haaga-helia.fi:8080/backend/kyselyt/{kyselyId}/kysymykset/<br/>
 http://proto331.haaga-helia.fi:8080/backend/kyselyt/{kyselyId}/kysymykset/{kysymysId}
 
 
