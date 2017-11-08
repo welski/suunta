@@ -30,8 +30,9 @@ public class KysymysDAO {
 		this.jdbcTemplate = jdbcTemplate;
 	}
 
+	// Tämä ei ole hyvä -> muutetaan maanantaina -Mikko
 	public List<Kysymys> haeKaikki(int id) {
-		String sql = "SELECT id, teksti FROM kysymys WHERE kysely_id = ?";
+		String sql = "SELECT k.id, k.teksti, k.monivalinta, v.id AS vai_id, v.teksti AS vai_teksti, v.kysymys_id FROM kysymys AS k, vaihtoehto AS v WHERE k.id = ? AND v.kysymys_id = k.id";
 		Object[] parametrit = new Object[] { id };
 		RowMapper<Kysymys> mapper = new KysymysRowMapper();
 		List<Kysymys> kysymykset = jdbcTemplate.query(sql, parametrit, mapper);

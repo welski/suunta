@@ -22,18 +22,18 @@ public class KyselyController {
 	KyselyDAO dao;
 
 	// REST, Kaikkien kyselyiden haku JSON-muodossa
-	@RequestMapping(value = "kyselyt.json", method = RequestMethod.GET)
+	@RequestMapping(value = "kyselyt", method = RequestMethod.GET)
 	public @ResponseBody List<Kysely> haeKyselytJSON() {
 		List<Kysely> kyselyt = dao.haeKaikki();
 		return kyselyt;
 	}
 
 	// REST, Uuden kyselyn luonti
-	@RequestMapping(value = "kyselyt", method = RequestMethod.POST)
-	public @ResponseBody Kysely luoKysely(@RequestBody Kysely kysely) {
-		dao.luoUusi(kysely);
-		return kysely;
-	}
+	// @RequestMapping(value = "kyselyt", method = RequestMethod.POST)
+	// public @ResponseBody Kysely luoKysely(@RequestBody Kysely kysely) {
+	// 		dao.luoUusi(kysely);
+	//	return kysely;
+	// }
 	
 	// JSP, Uuden kyselyn luonti
 	@RequestMapping(value="hallinta/kyselyt", method=RequestMethod.POST)
