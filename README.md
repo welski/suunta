@@ -1,10 +1,22 @@
 # suunta
 Ohjelmistoprojekti I, feedback-kysely
 
+
+## Suunniteludokumentit
+
+* [Käsitekaavio](documents/SWD4TN022-4_Suunta_kasitekaavio.vsdx) *Päivitetty 6.11.2017 (Kaikki)*
+* [Luokkakaavio (Java-kaavio)](documents/SWD4TN022-4_Suunta_luokkakaavio.vsdx) *Päivitetty 8.11.2017 (Mikko)*
+* [Relaatiokaavio](documents/SWD4TN022-4_Suunta_relaatiokaavio.vsdx) *Päivitetty 8.11.2017 (Mikko)*
+
+## Sprint 1
+[Backlog](documents/Suunta_Sprint1_Backlog.xlsx) *Päivitetty 6.11.2017 (Kaikki)*
+
 # Rest API
 
 Versio 0.1
 Päivitetty 8.11.2017 (Mikko, Marion)
+
+
 
 ## Sisältö
 
@@ -55,9 +67,3 @@ GET | /kysymykset/{kysymysId} | Body: tyhjä | Status: 200<br/>Body: Yhden kysym
 POST | /kysymykset/{kysymysId} | - | - | Status: 400 | Toiminto ei käytössä
 PUT | /kysymykset/{kysymysId} | - | - | Status: 400 | Toiminto ei käytössä
 DELETE | /kysymykset/{kysymysId} | - | - | Status: 400 | Toiminto ei käytössä
-
-# Suunniteludokumentit
-
-* [Käsitekaavio](documents/SWD4TN022-4_Suunta_kasitekaavio.vsdx) *Päivitetty 6.11.2017 (Kaikki)*
-* [Luokkakaavio (Java-kaavio)](documents/SWD4TN022-4_Suunta_luokkakaavio.vsdx) *Päivitetty 8.11.2017 (Mikko)*
-* [Relaatiokaavio](documents/SWD4TN022-4_Suunta_relaatiokaavio.vsdx) *Päivitetty 8.11.2017 (Mikko)*
