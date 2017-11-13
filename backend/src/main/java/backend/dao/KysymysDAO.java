@@ -30,26 +30,27 @@ public class KysymysDAO {
 		this.jdbcTemplate = jdbcTemplate;
 	}
 
-	// Tämä ei ole hyvä -> muutetaan maanantaina -Mikko
-	public List<Kysymys> haeKaikki(int id) {
-		String sql = "SELECT k.id, k.teksti, k.monivalinta, v.id AS vai_id, v.teksti AS vai_teksti, v.kysymys_id FROM kysymys AS k, vaihtoehto AS v WHERE k.id = ? AND v.kysymys_id = k.id";
+	public List<Kysymys> haeKaikki(VaihtoehtoDAO vdao, int id) {
+		String sql = "SELECT id, teksti, monivalinta FROM kysymys WHERE id = ?";
+		
 		Object[] parametrit = new Object[] { id };
-		RowMapper<Kysymys> mapper = new KysymysRowMapper();
+		RowMapper<Kysymys> mapper = new KysymysRowMapper(vdao);
 		List<Kysymys> kysymykset = jdbcTemplate.query(sql, parametrit, mapper);
 		
 		return kysymykset;
 	}
 
 	public Kysymys etsi(int id) {
-		// TODO Auto-generated method stub
+		// TODO
 		return null;
 	}
 
 	public void poista(int id) {
-		// TODO Auto-generated method stub
+		// TODO
 		
 	}
 
+	/* TO DO -Mikko 13/11/2017
 	public void luoUusi(Kysymys kysymys) {
 		final String sql = "INSERT INTO kysymys (nimi, kuvaus, kysely_id) VALUES (?, ?)";
 		final String nimi = kysymys.getNimi();
@@ -70,5 +71,6 @@ public class KysymysDAO {
 		
 		kysymys.setId(idHolder.getKey().intValue());
 	}
+	*/
 
 }

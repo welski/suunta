@@ -1,15 +1,14 @@
 package backend.bean;
 
 import java.util.ArrayList;
-
-import backend.bean.Kysymys;
+import java.util.List;
 
 public class KysymysMonivalinta implements Kysymys {
 
 	private int id;
 	private String teksti;
 	private boolean monivalinta;
-	private ArrayList<Vaihtoehto> vaihtoehdot = new ArrayList<Vaihtoehto>();
+	private List<Vaihtoehto> vaihtoehdot = new ArrayList<Vaihtoehto>();
 	
 	public int getId() {
 		return id;
@@ -29,10 +28,10 @@ public class KysymysMonivalinta implements Kysymys {
 	public void setMonivalinta(boolean monivalinta) {
 		this.monivalinta = monivalinta;
 	}
-	public ArrayList<Vaihtoehto> getVaihtoehdot() {
+	public List<Vaihtoehto> getVaihtoehdot() {
 		return vaihtoehdot;
 	}
-	public void setVaihtoehdot(ArrayList<Vaihtoehto> vaihtoehdot) {
+	public void setVaihtoehdot(List<Vaihtoehto> vaihtoehdot) {
 		this.vaihtoehdot = vaihtoehdot;
 	}
 }

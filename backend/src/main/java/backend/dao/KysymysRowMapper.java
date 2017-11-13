@@ -6,10 +6,17 @@ import java.sql.SQLException;
 import org.springframework.jdbc.core.RowMapper;
 
 import backend.bean.Kysymys;
+import backend.bean.KysymysMonivalinta;
 import backend.bean.KysymysTeksti;
 
 public class KysymysRowMapper implements RowMapper<Kysymys> {
 	
+	private VaihtoehtoDAO vdao;
+	
+	public KysymysRowMapper(VaihtoehtoDAO vdao) {
+		this.vdao = vdao;
+	}
+
 	public Kysymys mapRow(ResultSet rs, int rowNum) throws SQLException {
 		// Oletuksena kysymys on avoin tekstikysymys
 		boolean monivalinta = false;
@@ -18,7 +25,7 @@ public class KysymysRowMapper implements RowMapper<Kysymys> {
 		try {
 			monivalinta = rs.getBoolean("monivalinta");
 		} catch (SQLException e) {
-			throw new Exception(e);
+			e.printStackTrace();
 		}
 		
 		// Haetaan kysymyksen perustiedot
@@ -33,10 +40,14 @@ public class KysymysRowMapper implements RowMapper<Kysymys> {
 			
 			return kysymys;
 		} else {
+			// Kyseessä monivalinta, haetaan vaihtoehdot listaan
+			KysymysMonivalinta kysymys = new KysymysMonivalinta();
+			kysymys.setId(id);
+			kysymys.setTeksti(teksti);
 			
+			kysymys.setVaihtoehdot(vdao.haeKaikki(id));
+			
+			return kysymys;
 		}
-		
-				return k;
 	}
-
 }
