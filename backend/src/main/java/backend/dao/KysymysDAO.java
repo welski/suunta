@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.RowMapper;
@@ -31,7 +32,7 @@ public class KysymysDAO {
 	}
 
 	public List<Kysymys> haeKaikki(VaihtoehtoDAO vdao, int id) {
-		String sql = "SELECT id, teksti, monivalinta FROM kysymys WHERE id = ?";
+		String sql = "SELECT id, teksti, monivalinta FROM kysymys WHERE kysely_id = ?";
 		
 		Object[] parametrit = new Object[] { id };
 		RowMapper<Kysymys> mapper = new KysymysRowMapper(vdao);
@@ -40,20 +41,42 @@ public class KysymysDAO {
 		return kysymykset;
 	}
 
-	public Kysymys etsi(int id) {
-		// TODO
-		return null;
+	public Kysymys etsi(VaihtoehtoDAO vdao, int id) {
+		String sql = "SELECT id, teksti, monivalinta FROM kysymys WHERE id = ?";
+		
+		Object[] parametrit = new Object[] { id };
+		RowMapper<Kysymys> mapper = new KysymysRowMapper(vdao);
+
+		Kysymys kysymys = null;
+		
+		try {
+			kysymys = jdbcTemplate.queryForObject(sql, mapper, parametrit);
+		} catch (IncorrectResultSizeDataAccessException e) {
+			throw new RuntimeException(e);
+		}
+		
+		return kysymys;
 	}
 
 	public void poista(int id) {
-		// TODO
-		
+		final String sql = "DELETE FROM kysymys WHERE id = ?";
+				
+			jdbcTemplate.update(new PreparedStatementCreator() {
+				
+				@Override
+				public PreparedStatement createPreparedStatement(Connection connection) throws SQLException {
+					PreparedStatement preSta = connection.prepareStatement(sql, new String[] { "id" });
+					preSta.setInt(1, id);
+					return preSta;
+				}
+			});
 	}
-
-	/* TO DO -Mikko 13/11/2017
+/*
+	// TO DO -Mikko 13/11/2017
 	public void luoUusi(Kysymys kysymys) {
-		final String sql = "INSERT INTO kysymys (nimi, kuvaus, kysely_id) VALUES (?, ?)";
-		final String nimi = kysymys.getNimi();
+		
+		final String sql = "INSERT INTO kysymys (teksti, monivalinta, kysely_id) VALUES (?, ?, ?)";
+		final String teksti = kysymys.getTeksti();
 		final String kuvaus = kysymys.getKuvaus();
 		
 		KeyHolder idHolder = new GeneratedKeyHolder();

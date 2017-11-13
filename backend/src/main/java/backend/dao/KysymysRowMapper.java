@@ -44,6 +44,7 @@ public class KysymysRowMapper implements RowMapper<Kysymys> {
 			KysymysMonivalinta kysymys = new KysymysMonivalinta();
 			kysymys.setId(id);
 			kysymys.setTeksti(teksti);
+			kysymys.setMonivalinta(true);
 			
 			kysymys.setVaihtoehdot(vdao.haeKaikki(id));
 			

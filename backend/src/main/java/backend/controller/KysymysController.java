@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -25,19 +26,19 @@ public class KysymysController {
 	VaihtoehtoDAO vdao;
 
 	// REST, Kaikkien kysymysten haku JSON-muodossa
-	@RequestMapping(value = "kyselyt/{id}/kysymykset/", method = RequestMethod.GET)
+	@RequestMapping(value = "kyselyt/{id}/kysymykset", method = RequestMethod.GET)
 	public @ResponseBody List<Kysymys> haeKysymyksetJSON(@PathVariable int id) {
 		List<Kysymys> kysymykset = dao.haeKaikki(vdao, id);
 		return kysymykset;
 	}
 
-	// REST, Uuden kysymyksen luonti
-//	@RequestMapping(value = "kysymykset", method = RequestMethod.POST)
-//	public @ResponseBody Kysymys luoKysymys(@RequestBody Kysymys kysymys) {
-//		dao.luoUusi(kysymys);
-//		return kysymys;
-//	}
-
+	// Yhden kysymyksen haku
+	@RequestMapping(value="kyselyt/{kyselyId}/kysymykset/{kysymysId}", method=RequestMethod.GET)
+    public @ResponseBody Kysymys haeKysymys(@PathVariable int kyselyId, @PathVariable int kysymysId) {
+		Kysymys kysymys = dao.etsi(vdao, kysymysId);
+        return kysymys;
+    }
+	
 /*	
 	// JSP, Uuden kysymyksen luonti
 	@RequestMapping(value="hallinta/kysymykset", method=RequestMethod.POST)
@@ -57,13 +58,7 @@ public class KysymysController {
 		return "hallinta/kysymykset";
 	}
 */	
-	// Yhden kysymyksen haku
-	@RequestMapping(value="kysymykset/{id}", method=RequestMethod.GET)
-    public @ResponseBody Kysymys haeKysymys(@PathVariable int id) {
-		Kysymys kysymys = dao.etsi(id);
-        return kysymys;
-    }
-	
+
 	// Yhden kysymyksen poisto
 	@RequestMapping(value = "kysymykset/{id}", method = RequestMethod.DELETE)
 	public void poistaKysymys(@PathVariable int id) {

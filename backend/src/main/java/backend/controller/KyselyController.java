@@ -28,6 +28,13 @@ public class KyselyController {
 		return kyselyt;
 	}
 
+	// Yhden kyselyn haku
+	@RequestMapping(value="kyselyt/{id}", method=RequestMethod.GET)
+    public @ResponseBody Kysely haeKysely(@PathVariable int id) {
+		Kysely kysely = dao.etsi(id);
+        return kysely;
+    }
+	
 	// REST, Uuden kyselyn luonti
 	// @RequestMapping(value = "kyselyt", method = RequestMethod.POST)
 	// public @ResponseBody Kysely luoKysely(@RequestBody Kysely kysely) {
@@ -51,12 +58,7 @@ public class KyselyController {
 		return "hallinta/kyselyt";
 	}
 	
-	// Yhden kyselyn haku
-	@RequestMapping(value="kyselyt/{id}", method=RequestMethod.GET)
-    public @ResponseBody Kysely haeKysely(@PathVariable int id) {
-		Kysely kysely = dao.etsi(id);
-        return kysely;
-    }
+
 	
 	// Yhden kyselyn poisto
 	@RequestMapping(value = "kyselyt/{id}", method = RequestMethod.DELETE)

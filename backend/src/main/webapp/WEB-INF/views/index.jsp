@@ -24,10 +24,18 @@
 	</div>
 	
 	<div class="row">
-		<a href="hallinta/kyselyt">kyselyt</a>
+		<a href="hallinta/kyselyt">Kyselyiden hallinta</a>
 	</div>
 	<div class="row">
-		<a href="kyselyt.json">kyselyt JSON</a>
+		<h2>JSON</h2>
+	</div>
+	<div class="row">
+		<ul>
+			<li><a href="kyselyt">Kaikki kyselyt</a></li>
+			<li><a href="kyselyt/1">Esimerkki: Yksi kysely</a></li>
+			<li><a href="kyselyt/1/kysymykset">Esimerkki: Yhden kyselyn kaikki kysymykset</a></li>
+			<li><a href="kyselyt/1/kysymykset/1">Esimerkki: Yhden kyselyn yksi kysymys</a></li>
+		</ul>
 	</div>
 	
 </div>

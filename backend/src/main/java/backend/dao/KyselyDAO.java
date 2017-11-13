@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.RowMapper;
@@ -15,6 +16,7 @@ import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
 import backend.bean.Kysely;
+import backend.bean.Kysymys;
 
 @Repository
 public class KyselyDAO {
@@ -40,12 +42,24 @@ public class KyselyDAO {
 	}
 
 	public Kysely etsi(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "SELECT id, nimi, kuvaus FROM kysely WHERE id = ?";
+		
+		Object[] parametrit = new Object[] { id };
+		RowMapper<Kysely> mapper = new KyselyRowMapper();
+
+		Kysely kysely = null;
+		
+		try {
+			kysely = jdbcTemplate.queryForObject(sql, mapper, parametrit);
+		} catch (IncorrectResultSizeDataAccessException e) {
+			throw new RuntimeException(e);
+		}
+		
+		return kysely;
 	}
 
 	public void poista(int id) {
-		// TODO Auto-generated method stub
+		// TODO
 		
 	}
 
