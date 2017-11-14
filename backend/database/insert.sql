@@ -47,3 +47,45 @@ kysymys_id
  1);
 
 
+INSERT INTO kysely (
+nimi,
+kuvaus
+) VALUES (
+'Esimerkkikysely vihanneksista',
+'T‰m‰ toimii esimerkkin‰');
+
+INSERT INTO kysymys (
+teksti,
+monivalinta,
+kysely_id
+) VALUES (
+'T‰m‰ on monivalintakysymys',
+ true,
+ 4
+);
+
+INSERT INTO kysymys (
+teksti,
+monivalinta,
+kysely_id
+) VALUES (
+'T‰m‰ on tekstikysymys',
+ false,
+ 4
+);
+
+INSERT INTO vaihtoehto (
+teksti,
+kysymys_id
+) VALUES (
+'P‰‰ryn‰',
+ 5);
+
+INSERT INTO vaihtoehto (
+teksti,
+kysymys_id
+) VALUES (
+'Omena',
+ 5);
+
+ 
