@@ -16,13 +16,17 @@ import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
 import backend.bean.Kysymys;
+import backend.bean.KysymysMonivalinta;
+import backend.bean.KysymysTeksti;
+import backend.bean.Vaihtoehto;
 
 @Repository
 public class KysymysDAO {
 	
 	@Inject
 	private JdbcTemplate jdbcTemplate;
-	
+
+/*	
 	public JdbcTemplate getJdbcTemplate() {
 		return jdbcTemplate;
 	}
@@ -30,7 +34,8 @@ public class KysymysDAO {
 	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
 	}
-
+*/
+	
 	public List<Kysymys> haeKaikki(VaihtoehtoDAO vdao, int id) {
 		String sql = "SELECT id, teksti, monivalinta FROM kysymys WHERE kysely_id = ?";
 		
@@ -71,13 +76,11 @@ public class KysymysDAO {
 				}
 			});
 	}
-/*
-	// TO DO -Mikko 13/11/2017
-	public void luoUusi(Kysymys kysymys) {
-		
+
+	public void luoUusiTekstikysymys(KysymysTeksti kysymys, int kyselyId) {
 		final String sql = "INSERT INTO kysymys (teksti, monivalinta, kysely_id) VALUES (?, ?, ?)";
 		final String teksti = kysymys.getTeksti();
-		final String kuvaus = kysymys.getKuvaus();
+		final boolean monivalinta = false;
 		
 		KeyHolder idHolder = new GeneratedKeyHolder();
 		
@@ -85,15 +88,42 @@ public class KysymysDAO {
 			
 			@Override
 			public PreparedStatement createPreparedStatement(Connection connection) throws SQLException {
-				PreparedStatement preSta = connection.prepareStatement(sql, new String[] { "nimi", "kuvaus" });
-				preSta.setString(1, nimi);
-				preSta.setString(2, kuvaus);
+				PreparedStatement preSta = connection.prepareStatement(sql, new String[] { "teksti", "monivalinta", "kysely_id" });
+				preSta.setString(1, teksti);
+				preSta.setBoolean(2, monivalinta);
+				preSta.setInt(3, kyselyId);
 				return preSta;
 			}
 		}, idHolder);
 		
 		kysymys.setId(idHolder.getKey().intValue());
 	}
-	*/
+	
+	public void luoUusiMonivalintaKysymys(VaihtoehtoDAO vdao, KysymysMonivalinta kysymys, int kysymysId, List<Vaihtoehto> vaihtoehdot) {
+		final String sql = "INSERT INTO kysymys (teksti, monivalinta, kysely_id) VALUES (?, ?, ?)";
+		final String teksti = kysymys.getTeksti();
+		final boolean monivalinta = true;
+		
+		KeyHolder idHolder = new GeneratedKeyHolder();
+		
+		jdbcTemplate.update(new PreparedStatementCreator() {
+			
+			@Override
+			public PreparedStatement createPreparedStatement(Connection connection) throws SQLException {
+				PreparedStatement preSta = connection.prepareStatement(sql, new String[] { "teksti", "monivalinta", "kysely_id" });
+				preSta.setString(1, teksti);
+				preSta.setBoolean(2, monivalinta);
+				preSta.setInt(3, kysymysId);
+				return preSta;
+			}
+		}, idHolder);
 
+		// Tätä ei hyödynnetä toistaikseksi
+		// kysymys.setId(idHolder.getKey().intValue());
+		
+		for (Vaihtoehto vaihtoehto : vaihtoehdot) {
+			vdao.luoUusi(vaihtoehto, kysymysId);
+		}
+		
+	}
 }

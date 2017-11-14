@@ -8,12 +8,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import backend.bean.Kysymys;
+import backend.bean.KysymysMonivalinta;
+import backend.bean.KysymysTeksti;
+import backend.bean.Vaihtoehto;
 import backend.dao.KysymysDAO;
 import backend.dao.VaihtoehtoDAO;
 
@@ -39,15 +42,28 @@ public class KysymysController {
         return kysymys;
     }
 	
-/*	
+	
+	// TODO REVIEW kaksi eri metodia -> KysymyksTeksti ja KysymysMonivalinta ?
+	
 	// JSP, Uuden kysymyksen luonti
-	@RequestMapping(value="hallinta/kysymykset", method=RequestMethod.POST)
-	public String luoUusiKysymys(Model model, @ModelAttribute(value="kysymys") Kysymys kysymys) {
+	// Muoto: teksti
+	@RequestMapping(value="hallinta/kyselyt/{?}/uusi", method=RequestMethod.POST)
+	public String luoUusiKysymysTeksti(Model model, @PathVariable int kysymysId, @ModelAttribute(value="kysymys") KysymysTeksti kysymys) {
 		model.addAttribute("kysymys", kysymys);
-		dao.luoUusi(kysymys);
+		dao.luoUusiTekstikysymys(kysymys, kysymysId);
 		return "redirect:/hallinta/kysymykset";
 	}
-*/
+	
+	// JSP, Uuden kysymyksen luonti
+	// Muoto: monivalinta
+	@RequestMapping(value="hallinta/kyselyt/{?}/uusiMV", method=RequestMethod.POST)
+	public String luoUusiKysymysMonivalinta(Model model, VaihtoehtoDAO vdao, @PathVariable int kysymysId, @ModelAttribute(value="kysymys") KysymysMonivalinta kysymys, @RequestParam("vaihtoehto") List<Vaihtoehto> vaihtoehdot) {
+		model.addAttribute("kysymys", kysymys);
+		dao.luoUusiMonivalintaKysymys(vdao, kysymys, kysymysId, vaihtoehdot);
+		return "redirect:/hallinta/kysymykset";
+	}
+
+
 	
 /*	
 	// Kysymyslista testaukseen
