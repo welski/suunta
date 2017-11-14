@@ -37,6 +37,12 @@
 					<th class="col">
 						kuvaus
 					</th>
+					<th class="col">
+						lisää tekstikysymys
+					</th>
+					<th class="col">
+						lisää monivalintakysymys
+					</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -47,8 +53,12 @@
 						<td><c:out value="${kysely.nimi}" /></td>
 						<td><c:out value="${kysely.kuvaus}" /></td>						
 						<td>
-							<a href="kysely/<c:out value="${kysely.id}" />">
-							muokkaa</a>
+							<a href="kyselyt/<c:out value="${kysely.id}" />/lisaaTeksti">
+							Lisää</a>
+						</td>
+						<td>
+							<a href="kyselyt/<c:out value="${kysely.id}" />/lisaaMonivalinta">
+							Lisää</a>
 						</td>
 					</tr>
 				</c:forEach>

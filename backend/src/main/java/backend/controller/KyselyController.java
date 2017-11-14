@@ -49,7 +49,7 @@ public class KyselyController {
 		return "redirect:/hallinta/kyselyt";
 	}
 
-	// Kyselylista testaukseen
+	// JSP, lista kyselyistä
 	@RequestMapping("hallinta/kyselyt")
 	public String naytaKyselylista(Model model) {
 		List<Kysely> kyselyt = dao.haeKaikki();
@@ -57,6 +57,13 @@ public class KyselyController {
 		return "hallinta/kyselyt";
 	}
 	
+	// JSP, uuden tekstikysymyksen lisäys
+	@RequestMapping("hallinta/kyselyt/{id}/lisaaTeksti")
+	public String naytaTekstikysymysLomake(Model model, @PathVariable int id) {
+		Kysely kysely = dao.etsi(id);
+		model.addAttribute("kysely", kysely);
+		return "hallinta/uusiKysymysTeksti";
+	}
 
 	
 	// Yhden kyselyn poisto

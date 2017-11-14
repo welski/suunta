@@ -61,7 +61,7 @@ kysely_id
 ) VALUES (
 'Tämä on monivalintakysymys',
  true,
- 4
+ 2
 );
 
 INSERT INTO kysymys (
@@ -71,7 +71,7 @@ kysely_id
 ) VALUES (
 'Tämä on tekstikysymys',
  false,
- 4
+ 2
 );
 
 INSERT INTO vaihtoehto (

@@ -35,7 +35,7 @@ public class KysymysController {
 		return kysymykset;
 	}
 
-	// Yhden kysymyksen haku
+	// REST, Yhden kysymyksen haku
 	@RequestMapping(value="kyselyt/{kyselyId}/kysymykset/{kysymysId}", method=RequestMethod.GET)
     public @ResponseBody Kysymys haeKysymys(@PathVariable int kyselyId, @PathVariable int kysymysId) {
 		Kysymys kysymys = dao.etsi(vdao, kysymysId);
@@ -47,20 +47,20 @@ public class KysymysController {
 	
 	// JSP, Uuden kysymyksen luonti
 	// Muoto: teksti
-	@RequestMapping(value="hallinta/kyselyt/{?}/uusi", method=RequestMethod.POST)
-	public String luoUusiKysymysTeksti(Model model, @PathVariable int kysymysId, @ModelAttribute(value="kysymys") KysymysTeksti kysymys) {
+	@RequestMapping(value="hallinta/kyselyt/{kyselyId}/lisaaTeksti", method=RequestMethod.POST)
+	public String luoUusiKysymysTeksti(Model model, @PathVariable int kyselyId, @ModelAttribute(value="kysymys") KysymysTeksti kysymys) {
 		model.addAttribute("kysymys", kysymys);
-		dao.luoUusiTekstikysymys(kysymys, kysymysId);
-		return "redirect:/hallinta/kysymykset";
+		dao.luoUusiTekstikysymys(kysymys, kyselyId);
+		return "redirect:/hallinta/kyselyt";
 	}
 	
 	// JSP, Uuden kysymyksen luonti
 	// Muoto: monivalinta
-	@RequestMapping(value="hallinta/kyselyt/{?}/uusiMV", method=RequestMethod.POST)
+	@RequestMapping(value="hallinta/kyselyt/{?}/lisaaMonivalinta", method=RequestMethod.POST)
 	public String luoUusiKysymysMonivalinta(Model model, VaihtoehtoDAO vdao, @PathVariable int kysymysId, @ModelAttribute(value="kysymys") KysymysMonivalinta kysymys, @RequestParam("vaihtoehto") List<Vaihtoehto> vaihtoehdot) {
 		model.addAttribute("kysymys", kysymys);
 		dao.luoUusiMonivalintaKysymys(vdao, kysymys, kysymysId, vaihtoehdot);
-		return "redirect:/hallinta/kysymykset";
+		return "redirect:/hallinta/kyselyt";
 	}
 
 
