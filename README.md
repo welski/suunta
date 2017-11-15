@@ -13,8 +13,8 @@ Ohjelmistoprojekti I, feedback-kysely
 
 # Rest API
 
-Versio 0.1
-Päivitetty 8.11.2017 (Mikko, Marion)
+Versio 0.2
+Päivitetty 15.11.2017 (Mikko)
 
 
 
