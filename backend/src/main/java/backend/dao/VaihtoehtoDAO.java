@@ -22,6 +22,14 @@ public class VaihtoehtoDAO {
 	@Inject
 	private JdbcTemplate jdbcTemplate;
 	
+	public JdbcTemplate getJdbcTemplate() {
+		return jdbcTemplate;
+	}
+
+	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
+		this.jdbcTemplate = jdbcTemplate;
+	}
+	
 	public List<Vaihtoehto> haeKaikki(int kysymysId) {
 		String sql = "SELECT id, teksti FROM vaihtoehto WHERE kysymys_id = ?";
 		Object[] parametrit = new Object[] { kysymysId };
@@ -33,9 +41,10 @@ public class VaihtoehtoDAO {
 		return vaihtoehdot;
 	}
 	
-	public void luoUusi(Vaihtoehto vaihtoehto, int kysymysId) {
+	public void luoUusi(JdbcTemplate jdbcTemp, Vaihtoehto vaihtoehto, int kysymysId) {
+		setJdbcTemplate(jdbcTemp);
 		final String sql = "INSERT INTO vaihtoehto (teksti, kysymys_id) VALUES (?, ?)";
-		final String nimi = vaihtoehto.getTeksti();
+		final String teksti = vaihtoehto.getTeksti();
 		
 		KeyHolder idHolder = new GeneratedKeyHolder();
 		
@@ -44,7 +53,7 @@ public class VaihtoehtoDAO {
 			@Override
 			public PreparedStatement createPreparedStatement(Connection connection) throws SQLException {
 				PreparedStatement preSta = connection.prepareStatement(sql, new String[] { "teksti", "kysymys_id" });
-				preSta.setString(1, nimi);
+				preSta.setString(1, teksti);
 				preSta.setInt(2, kysymysId);
 				return preSta;
 			}

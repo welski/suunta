@@ -26,7 +26,7 @@ public class KysymysDAO {
 	@Inject
 	private JdbcTemplate jdbcTemplate;
 
-/*	
+	
 	public JdbcTemplate getJdbcTemplate() {
 		return jdbcTemplate;
 	}
@@ -34,7 +34,7 @@ public class KysymysDAO {
 	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
 	}
-*/
+
 	
 	public List<Kysymys> haeKaikki(VaihtoehtoDAO vdao, int id) {
 		String sql = "SELECT id, teksti, monivalinta FROM kysymys WHERE kysely_id = ?";
@@ -122,7 +122,7 @@ public class KysymysDAO {
 		// kysymys.setId(idHolder.getKey().intValue());
 		
 		for (Vaihtoehto vaihtoehto : vaihtoehdot) {
-			vdao.luoUusi(vaihtoehto, kysymysId);
+			vdao.luoUusi(jdbcTemplate, vaihtoehto, kysymysId);
 		}
 		
 	}

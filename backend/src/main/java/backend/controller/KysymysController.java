@@ -61,7 +61,7 @@ public class KysymysController {
 	public String luoUusiKysymysMonivalinta(Model model, VaihtoehtoDAO vdao, @PathVariable int kyselyId, @ModelAttribute(value="kysymysMv") KysymysMonivalinta kysymys, @RequestParam("vaihtoehto") List<String> vaihtoehtoKentat) {
 		model.addAttribute("kysymys", kysymys);
 		
-		List<Vaihtoehto> vaihtoehdot = new ArrayList<Vaihtoehto>();
+		List<Vaihtoehto> vaihtoehdot = new ArrayList<Vaihtoehto>(3);
 		
 		for (String teksti : vaihtoehtoKentat){
 			Vaihtoehto v = new Vaihtoehto();
