@@ -23,7 +23,6 @@ public class KyselyDAO {
 	@Inject
 	private JdbcTemplate jdbcTemplate;
 
-/* Näitä ei tarvittane
 	public JdbcTemplate getJdbcTemplate() {
 		return jdbcTemplate;
 	}
@@ -31,7 +30,6 @@ public class KyselyDAO {
 	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
 	}
-*/
 
 	public List<Kysely> haeKaikki() {
 		String sql = "SELECT id, nimi, kuvaus FROM kysely";
