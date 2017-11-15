@@ -99,7 +99,7 @@ public class KysymysDAO {
 		kysymys.setId(idHolder.getKey().intValue());
 	}
 	
-	public void luoUusiMonivalintaKysymys(VaihtoehtoDAO vdao, KysymysMonivalinta kysymys, int kysymysId, List<Vaihtoehto> vaihtoehdot) {
+	public void luoUusiMonivalintaKysymys(VaihtoehtoDAO vdao, KysymysMonivalinta kysymys, int kyselyId, List<Vaihtoehto> vaihtoehdot) {
 		final String sql = "INSERT INTO kysymys (teksti, monivalinta, kysely_id) VALUES (?, ?, ?)";
 		final String teksti = kysymys.getTeksti();
 		final boolean monivalinta = true;
@@ -113,13 +113,13 @@ public class KysymysDAO {
 				PreparedStatement preSta = connection.prepareStatement(sql, new String[] { "teksti", "monivalinta", "kysely_id" });
 				preSta.setString(1, teksti);
 				preSta.setBoolean(2, monivalinta);
-				preSta.setInt(3, kysymysId);
+				preSta.setInt(3, kyselyId);
 				return preSta;
 			}
 		}, idHolder);
 
 		// Tätä ei hyödynnetä toistaikseksi
-		// kysymys.setId(idHolder.getKey().intValue());
+		int kysymysId = idHolder.getKey().intValue();
 		
 		for (Vaihtoehto vaihtoehto : vaihtoehdot) {
 			vdao.luoUusi(jdbcTemplate, vaihtoehto, kysymysId);
