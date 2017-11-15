@@ -1,5 +1,6 @@
 package backend.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -56,10 +57,19 @@ public class KysymysController {
 	
 	// JSP, Uuden kysymyksen luonti
 	// Muoto: monivalinta
-	@RequestMapping(value="hallinta/kyselyt/{?}/lisaaMonivalinta", method=RequestMethod.POST)
-	public String luoUusiKysymysMonivalinta(Model model, VaihtoehtoDAO vdao, @PathVariable int kysymysId, @ModelAttribute(value="kysymys") KysymysMonivalinta kysymys, @RequestParam("vaihtoehto") List<Vaihtoehto> vaihtoehdot) {
+	@RequestMapping(value="hallinta/kyselyt/{kyselyId}/lisaaMonivalinta", method=RequestMethod.POST)
+	public String luoUusiKysymysMonivalinta(Model model, VaihtoehtoDAO vdao, @PathVariable int kyselyId, @ModelAttribute(value="kysymysMv") KysymysMonivalinta kysymys, @RequestParam("vaihtoehto") List<String> vaihtoehtoKentat) {
 		model.addAttribute("kysymys", kysymys);
-		dao.luoUusiMonivalintaKysymys(vdao, kysymys, kysymysId, vaihtoehdot);
+		
+		List<Vaihtoehto> vaihtoehdot = new ArrayList<Vaihtoehto>();
+		
+		for (String teksti : vaihtoehtoKentat){
+			Vaihtoehto v = new Vaihtoehto();
+			v.setTeksti(teksti);
+			vaihtoehdot.add(v);
+		}
+		
+		dao.luoUusiMonivalintaKysymys(vdao, kysymys, kyselyId, vaihtoehdot);
 		return "redirect:/hallinta/kyselyt";
 	}
 

@@ -57,12 +57,20 @@ public class KyselyController {
 		return "hallinta/kyselyt";
 	}
 	
-	// JSP, uuden tekstikysymyksen lisäys
+	// JSP, uuden tekstikysymyksen lisäyssivu
 	@RequestMapping("hallinta/kyselyt/{id}/lisaaTeksti")
 	public String naytaTekstikysymysLomake(Model model, @PathVariable int id) {
 		Kysely kysely = dao.etsi(id);
 		model.addAttribute("kysely", kysely);
 		return "hallinta/uusiKysymysTeksti";
+	}
+
+	// JSP, uuden monivalintakysymyksen lisäyssivu
+	@RequestMapping("hallinta/kyselyt/{id}/lisaaMonivalinta")
+	public String naytaMonivalintakysymysLomake(Model model, @PathVariable int id) {
+		Kysely kysely = dao.etsi(id);
+		model.addAttribute("kysely", kysely);
+		return "hallinta/uusiKysymysMonivalinta";
 	}
 
 	

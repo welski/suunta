@@ -37,7 +37,100 @@ Kysymykset | Collection, kokoelma Kysymyksiä
 
 ## 2. Resurssien esitys JSON-muodossa (Resource Representations)
 
-todo
+### Kaikki kyselyt
+API-osoite: http://proto331.haaga-helia.fi:8080/backend/kyselyt
+
+Metodi: GET
+
+Vastaus:
+```
+[
+  {
+	"id": 1,
+	"nimi": "Kurssipalaute kurssilta SWD4TN022-5",
+	"kuvaus": "Anna kurssipalautetta opettajalle kurssilta SWD4TN022-5 vastaamalla annettuihin kysymyksiin.",
+	"kysymykset": [] *Tämä pitäisi ehkä poistaa?*
+  },
+	"id": 2,
+	"nimi": "Esimerkkikysely vihanneksista",
+	"kuvaus": "Tämä toimii esimerkkinä",
+	"kysymykset": [] *Tämä pitäisi ehkä poistaa?*
+  }
+]
+```
+
+### Yksi kysely
+API-osoite: http://proto331.haaga-helia.fi:8080/backend/kyselyt/{kyselyId}
+
+Metodi: GET
+
+Vastaus:
+```
+{
+	"id": 2,
+	"nimi": "Esimerkkikysely vihanneksista",
+	"kuvaus": "Tämä toimii esimerkkinä",
+	"kysymykset": [] *Tämä pitäisi ehkä poistaa?*
+}
+
+```
+
+### Yhden kyselyn kaikki kysymykset
+API-osoite: http://proto331.haaga-helia.fi:8080/backend/kyselyt/{kyselyId}/kysymykset
+
+Metodi: GET
+
+Vastaus:
+```
+[
+  {
+	"id": 5,
+	"teksti": "Tämä on monivalintakysymys",
+	"monivalinta": true,
+	"vaihtoehdot": 
+	[
+	  {
+		"id": 4,
+		"teksti": "Päärynä"
+	  },
+	  {
+		"id": 5,
+		"teksti": "Omena"
+	  }
+	]
+  },
+  {
+	"id": 6,
+	"teksti": "Tämä on tekstikysymys"
+  }
+]
+```
+
+### Yhden kyselyn yksi kysymys
+API-osoite: http://proto331.haaga-helia.fi:8080/backend/kyselyt/{kyselyId}/kysymykset/{kysymysId}
+
+Metodi: GET
+
+Vastaus:
+```
+{
+	"id": 5,
+	"teksti": "Tämä on monivalintakysymys",
+	"monivalinta": true,
+	"vaihtoehdot":
+	[
+	  {
+	    "id": 4,
+		"teksti": "Päärynä"
+	  },
+	  {
+	    "id": 5,
+		"teksti": "Omena"
+	  }
+	]
+}
+
+```
 
 
 ## 3. Resurssien osoitteet/URIt (EndPoints of Resources)
