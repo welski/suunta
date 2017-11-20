@@ -88,4 +88,13 @@ kysymys_id
 'Omena',
  5);
 
+INSERT INTO vastaus (
+teksti,
+kysymys_id
+) VALUES (
+'DAO, Controller ja Bean',
+1
+);
+
+
  
