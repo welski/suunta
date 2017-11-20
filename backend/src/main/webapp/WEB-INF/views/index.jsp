@@ -24,8 +24,14 @@
 	</div>
 	
 	<div class="row">
+		<h2>Rest API</h2>
+		<a href="http://github.com/welski/suunta">Rest API @ GitHub</a>
+	</div>
+
+	<div class="row">
 		<a href="hallinta/kyselyt">Kyselyiden hallinta</a>
 	</div>
+
 	<div class="row">
 		<h2>JSON</h2>
 	</div>
