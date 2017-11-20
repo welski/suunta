@@ -4,7 +4,6 @@ public class Vastaus {
 	
 	private int id;
 	private String teksti;
-	private int kysymysId;
 	
 	public int getId() {
 		return id;
@@ -18,15 +17,10 @@ public class Vastaus {
 	public void setTeksti(String teksti) {
 		this.teksti = teksti;
 	}
-	public int getKysymysId() {
-		return kysymysId;
-	}
-	public void setKysymysId(int kysymysId) {
-		this.kysymysId = kysymysId;
-	}
+	
 	@Override
 	public String toString() {
-		return "Vastaus [id=" + id + ", teksti=" + teksti + ", kysymysId=" + kysymysId + "]";
+		return "Vastaus [id=" + id + ", teksti=" + teksti;
 	}
 	
 }
