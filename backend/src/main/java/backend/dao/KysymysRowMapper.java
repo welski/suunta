@@ -20,35 +20,41 @@ public class KysymysRowMapper implements RowMapper<Kysymys> {
 	public Kysymys mapRow(ResultSet rs, int rowNum) throws SQLException {
 		// Oletuksena kysymys on avoin tekstikysymys
 		boolean monivalinta = false;
-		
-		// Tutkitaan, onko kyseessä monivalintakysymys
-		try {
-			monivalinta = rs.getBoolean("monivalinta");
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
+
 		// Haetaan kysymyksen perustiedot
 		int id = rs.getInt("id");
 		String teksti = rs.getString("teksti");
 		
-		// Jos kyseessä ei ole monivalinta, luodaan ja palautetaan kysymys		
-		if (!monivalinta) {
-			KysymysTeksti kysymys = new KysymysTeksti();
-			kysymys.setId(id);
-			kysymys.setTeksti(teksti);
-			
-			return kysymys;
-		} else {
-			// Kyseessä monivalinta, haetaan vaihtoehdot listaan
-			KysymysMonivalinta kysymys = new KysymysMonivalinta();
-			kysymys.setId(id);
-			kysymys.setTeksti(teksti);
-			kysymys.setMonivalinta(true);
-			
-			kysymys.setVaihtoehdot(vdao.haeKaikki(id));
-			
-			return kysymys;
+		// Tutkitaan, onko kyseessä monivalintakysymys
+		try {
+			if (vdao.haeKaikki(id) != null) {
+				// Kysymys sisältää monta vastausvaihtoehtoa
+				
+				// Jos false -> radiobuttonit, jos true -> checkboxit
+				monivalinta = rs.getBoolean("monivalinta");
+				
+				// Kyseessä monivalinta, haetaan vaihtoehdot listaan
+				KysymysMonivalinta kysymys = new KysymysMonivalinta();
+				kysymys.setId(id);
+				kysymys.setTeksti(teksti);
+				kysymys.setMonivalinta(monivalinta);
+				
+				kysymys.setVaihtoehdot(vdao.haeKaikki(id));
+				
+				return kysymys;
+				
+			} else {
+				// Jos kyseessä ei ole monivalinta, luodaan ja palautetaan kysymys
+				KysymysTeksti kysymys = new KysymysTeksti();
+				kysymys.setId(id);
+				kysymys.setTeksti(teksti);
+				
+				return kysymys;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
+		
+		return null;
 	}
 }

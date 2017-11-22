@@ -25,25 +25,26 @@
 	
 	<div class="row">
 		<h2>Rest API</h2>
+	</div>
+	<div class="row">
 		<a href="http://github.com/welski/suunta">Rest API @ GitHub</a>
 	</div>
 
-	<div class="row">
-		<a href="hallinta/kyselyt">Kyselyiden hallinta</a>
-	</div>
-
-	<div class="row">
-		<h2>JSON</h2>
-	</div>
-	<div class="row">
-		<ul>
-			<li><a href="kyselyt">Kaikki kyselyt</a></li>
-			<li><a href="kyselyt/1">Esimerkki: Yksi kysely</a></li>
-			<li><a href="kyselyt/1/kysymykset">Esimerkki: Yhden kyselyn kaikki kysymykset</a></li>
-			<li><a href="kyselyt/1/kysymykset/1">Esimerkki: Yhden kyselyn yksi kysymys</a></li>
-		</ul>
-	</div>
+	<div class="row" style="margin-top: 40px;">
 	
+		<div class="col-6">
+			<h2>JSON</h2>
+			<ul>
+				<li><a href="kyselyt">Kaikki kyselyt</a></li>
+				<li><a href="kyselyt/1">Esimerkki: Yksi kysely</a></li>
+				<li><a href="kyselyt/1/kysymykset">Esimerkki: Yhden kyselyn kaikki kysymykset</a></li>
+				<li><a href="kyselyt/1/kysymykset/1">Esimerkki: Yhden kyselyn yksi kysymys</a></li>
+			</ul>
+		</div>
+		<div class="col-6">
+			<a href="hallinta/kyselyt">Kyselyiden hallinta</a>
+		</div>
+	</div>
 </div>
 </body>
 </html>

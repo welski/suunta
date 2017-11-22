@@ -1,14 +1,10 @@
 package backend.bean;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Kysely {
 
 	private int id;
 	private String nimi;
 	private String kuvaus;
-	private List<Kysymys> kysymykset = new ArrayList<Kysymys>();
 	
 	public int getId() {
 		return id;
@@ -27,15 +23,6 @@ public class Kysely {
 	}
 	public void setKuvaus(String kuvaus) {
 		this.kuvaus = kuvaus;
-	}
-	public List<Kysymys> getKysymykset() {
-		return kysymykset;
-	}
-	public boolean add(Kysymys kysymys) {
-		return kysymykset.add(kysymys);
-	}
-	public Kysymys remove(int id) {
-		return kysymykset.remove(id);
 	}
 	
 	@Override
