@@ -23,13 +23,13 @@ public class VastausController {
 	
 	// REST, JSON-muotoisten vastausten tallentaminen yhdestä kysymyksestä
 	@RequestMapping(value = "kyselyt/{kyselyId}/kysymykset/{kysymysId}", method = RequestMethod.POST)
-	public @ResponseBody List<Vastaus> luoVastaukset(@PathVariable int kyselyId, @PathVariable int kysymysId, @RequestBody VastausWrapper vastaukset) {
+	public @ResponseBody List<Vastaus> luoVastaukset(@PathVariable int kyselyId, @PathVariable int kysymysId, @RequestBody List<Vastaus> vastaukset) {
 		
-		for (Vastaus v : vastaukset.getVastaukset()) {
+		for (Vastaus v : vastaukset) {
 			dao.luoUusi(v, kysymysId);
 		}
 		
-		return vastaukset.getVastaukset();
+		return vastaukset;
 	}
 
 }
