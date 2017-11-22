@@ -7,8 +7,8 @@ INSERT INTO kysely (
 nimi,
 kuvaus
 ) VALUES (
-'Informaation lˆyt‰minen Haaga-Helian kursseista',
-'J‰senet: Calle Korrem‰ki, S‰de Jalonen, Laura-Maaria Penttil‰, Samuli Kinnunen');
+'Informaation l√∂yt√§minen Haaga-Helian kursseista',
+'J√§senet: Calle Korrem√§ki, S√§de Jalonen, Laura-Maaria Penttil√§, Samuli Kinnunen');
 
 /* Kysymys 1
  * 
@@ -28,7 +28,7 @@ INSERT INTO vaihtoehto (
 teksti,
 kysymys_id
 ) VALUES (
-'P‰iv‰toteutus',
+'P√§iv√§toteutus',
  1);
 
 INSERT INTO vaihtoehto (
@@ -62,7 +62,7 @@ teksti,
 monivalinta,
 kysely_id
 ) VALUES (
-'Mist‰ olet lˆyt‰nyt tietoa Haaga-Helian kursseista?',
+'Mist√§ olet l√∂yt√§nyt tietoa Haaga-Helian kursseista?',
  true,
  1
 );
@@ -99,14 +99,14 @@ INSERT INTO vaihtoehto (
 teksti,
 kysymys_id
 ) VALUES (
-'Muu henkilˆ',
+'Muu henkil√∂',
  2);
  
 INSERT INTO vaihtoehto (
 teksti,
 kysymys_id
 ) VALUES (
-'Muualta, mist‰?',
+'Muualta, mist√§?',
  2);
 
  
@@ -176,7 +176,7 @@ teksti,
 monivalinta,
 kysely_id
 ) VALUES (
-'Lˆytyykˆ kurssi-informaatio yhdest‰ paikasta?',
+'L√∂ytyyk√∂ kurssi-informaatio yhdest√§ paikasta?',
  true,
  1
 );
@@ -185,7 +185,7 @@ INSERT INTO vaihtoehto (
 teksti,
 kysymys_id
 ) VALUES (
-'Kyll‰',
+'Kyll√§',
  4);
 
 INSERT INTO vaihtoehto (
@@ -213,7 +213,7 @@ teksti,
 monivalinta,
 kysely_id
 ) VALUES (
-'Mink‰ kanavan kautta haluaisit kurssi-informaation lˆytyv‰n?',
+'Mink√§ kanavan kautta haluaisit kurssi-informaation l√∂ytyv√§n?',
  true,
  1
 );
@@ -256,7 +256,7 @@ teksti,
 monivalinta,
 kysely_id
 ) VALUES (
-'Yleinen arvosana t‰m‰nhetkisest‰ toimintamallista?',
+'Yleinen arvosana t√§m√§nhetkisest√§ toimintamallista?',
  true,
  1
 );
@@ -280,7 +280,7 @@ teksti,
 kysymys_id
 ) VALUES (
 '3',
- 3);
+ 6);
  
 INSERT INTO vaihtoehto (
 teksti,
