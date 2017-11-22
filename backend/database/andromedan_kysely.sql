@@ -20,7 +20,7 @@ monivalinta,
 kysely_id
 ) VALUES (
 'Opiskelumuoto',
- true,
+ false,
  1
 );
 
@@ -120,7 +120,7 @@ monivalinta,
 kysely_id
 ) VALUES (
 'Kuinka helpoksi koet tiedon etsimisen?',
- true,
+ false,
  1
 );
 
@@ -177,7 +177,7 @@ monivalinta,
 kysely_id
 ) VALUES (
 'Löytyykö kurssi-informaatio yhdestä paikasta?',
- true,
+ false,
  1
 );
 
@@ -257,7 +257,7 @@ monivalinta,
 kysely_id
 ) VALUES (
 'Yleinen arvosana tämänhetkisestä toimintamallista?',
- true,
+ false,
  1
 );
 
