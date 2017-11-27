@@ -13,8 +13,8 @@ Ohjelmistoprojekti I, feedback-kysely
 
 # Rest API
 
-Versio 0.4
-Päivitetty 22.11.2017 (Mikko)
+Versio 0.5
+Päivitetty 27.11.2017 (Mikko)
 
 ## Sisältö
 
@@ -22,7 +22,7 @@ Päivitetty 22.11.2017 (Mikko)
 [2. Yksi kysely](https://github.com/welski/suunta#yksi-kysely)<br/>
 [3. Yhden kyselyn kaikki kysymykset](https://github.com/welski/suunta#yhden-kyselyn-kaikki-kysymykset)<br/>
 [4. Yhden kyselyn yksi kysymys](https://github.com/welski/suunta#yhden-kyselyn-yksi-kysymys)<br/>
-[5. Yhden kyselyn yhden kysymykset vastausten tallentaminen](https://github.com/welski/suunta#yhden-kyselyn-yhden-kysymykset-vastausten-tallentaminen)
+[5. Yhden kyselyn kaikkien kysymysten vastausten tallentaminen](https://github.com/welski/suunta#yhden-kyselyn-kaikkien-kysymysten-vastausten-tallentaminen)
 
 ### Kaikki kyselyt
 API-osoite: http://proto331.haaga-helia.fi:8080/backend/kyselyt
