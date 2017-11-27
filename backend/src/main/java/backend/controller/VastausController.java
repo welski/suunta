@@ -21,11 +21,11 @@ public class VastausController {
 	VastausDAO dao;
 	
 	// REST, JSON-muotoisten vastausten tallentaminen yhdestä kysymyksestä
-	@RequestMapping(value = "kyselyt/{kyselyId}/kysymykset/{kysymysId}", method = RequestMethod.POST)
-	public @ResponseBody List<Vastaus> luoVastaukset(@PathVariable int kyselyId, @PathVariable int kysymysId, @RequestBody List<Vastaus> vastaukset) {
+	@RequestMapping(value = "kyselyt/{kyselyId}/vastaukset", method = RequestMethod.POST)
+	public @ResponseBody List<Vastaus> luoVastaukset(@PathVariable int kyselyId, @RequestBody List<Vastaus> vastaukset) {
 		
 		for (Vastaus v : vastaukset) {
-			dao.luoUusi(v, kysymysId);
+			dao.luoUusi(v);
 		}
 		
 		return vastaukset;

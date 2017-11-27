@@ -44,9 +44,10 @@ public class VastausDAO {
 	}
 	
 	// Tallentaan yhden Vastaus-objektin tietokantaan
-	public void luoUusi(Vastaus vastaus, int kysymysId) {
+	public void luoUusi(Vastaus vastaus) {
 		final String sql = "INSERT INTO vastaus (teksti, kysymys_id) VALUES (?, ?)";
 		final String teksti = vastaus.getTeksti();
+		final int kysymysId = vastaus.getKysymysId();
 		
 		KeyHolder idHolder = new GeneratedKeyHolder();
 		
