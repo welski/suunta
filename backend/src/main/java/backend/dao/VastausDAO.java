@@ -34,7 +34,7 @@ public class VastausDAO {
 
 	// Palauttaa kaikki vastaukset yhteen kysymykseen
 	public List<Vastaus> haeKaikki(int kysymysId) {
-		String sql = "SELECT id, teksti, FROM vastaus WHERE kysymys_id = ?";
+		String sql = "SELECT id, teksti FROM vastaus WHERE kysymys_id = ?";
 		
 		Object[] parametrit = new Object[] { kysymysId };
 		RowMapper<Vastaus> mapper = new VastausRowMapper();

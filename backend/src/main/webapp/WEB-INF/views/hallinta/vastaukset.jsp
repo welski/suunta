@@ -12,16 +12,16 @@
 	<meta name="viewport"
 		content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	
-	<link rel="stylesheet" type="text/css" href="../../resources/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../../../resources/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../../resources/css/backend.css">
 	
-	<title>Kysymykset</title>
+	<title>Vastaukset</title>
 	</head>
 	<body>
 		<div class="container">
 		
 			<div class="row">
-				<h1>Kysymykset</h1>
+				<h1>Vastaukset</h1>
 			</div>
 			
 			<div class="col-md-12">
@@ -32,29 +32,21 @@
 								id
 							</th>
 							<th class="col-xs-auto">
-								kysymys
+								vastaus
 							</th>
 							
-							<th class="col-xs-auto">
-								näytä
-							</th>
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach items="${kysymykset}" var="kysymys">
+						<c:forEach items="${vastaukset}" var="vastaus">
 							<tr>
-								<th scope="row"><c:out value="${kysymys.id}"/></th>
-								<td><c:out value="${kysymys.teksti}"/></td>
-								<td><a href="<c:out value="${kysymys.id}"/>/vastaukset" >Vastaukset</a></td>
+								<th scope="row"><c:out value="${vastaus.id}"/></th>
+								<td><c:out value="${vastaus.teksti}"/></td>
 							</tr>
 							
 						</c:forEach>
 					</tbody>
 				</table>
-			</div>
-			<div class="form-group">
-			<a href="/backend/hallinta/kyselyt/<c:out value="${kyselyId}" />/lisaaMonivalinta" class="btn btn-primary">Lisää monivalintakysymys</a>
-			<a href="/backend/hallinta/kyselyt/<c:out value="${kyselyId}" />/lisaaTeksti" class="btn btn-danger">Lisää tekstikysymys</a>
 			</div>
 		</div>
 	</body>

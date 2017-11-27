@@ -40,9 +40,6 @@
 					<th class="col">
 						muokkaa
 					</th>
-					<th class="col">
-						näytä
-					</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -55,10 +52,6 @@
 						<td>
 							<a href="kysymykset/<c:out value="${kysely.id}" />">
 							Näytä kysymykset</a>
-						</td>
-						<td>
-							<a href="/backend/hallinta/vastaukset">
-							Näytä vastaukset</a>
 						</td>
 					</tr>
 				</c:forEach>

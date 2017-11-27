@@ -5,6 +5,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import backend.bean.Vastaus;
+import backend.dao.KysymysDAO;
 import backend.dao.VastausDAO;
 
 @Controller
@@ -19,6 +21,9 @@ public class VastausController {
 	
 	@Inject
 	VastausDAO dao;
+	
+	@Inject
+	KysymysDAO kdao;
 	
 	// REST, JSON-muotoisten vastausten tallentaminen yhdestä kysymyksestä
 	@RequestMapping(value = "kyselyt/{kyselyId}/vastaukset", method = RequestMethod.POST)
@@ -30,5 +35,18 @@ public class VastausController {
 		
 		return vastaukset;
 	}
+	
+	// JSP
+	// Kysymyslista ja vaihtoehtolista
+		@RequestMapping("hallinta/kysymykset/{id}/vastaukset")
+		public String naytaVastaukset(Model model, @PathVariable int id) {
+
+			
+			List<Vastaus> vastaukset = dao.haeKaikki(id);
+			model.addAttribute("vastaukset", vastaukset);
+			
+			return "hallinta/vastaukset";
+			
+		}
 
 }

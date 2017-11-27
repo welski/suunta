@@ -73,17 +73,26 @@ public class KysymysController {
 		return "redirect:/hallinta/kysymykset/{kyselyId}";
 	}
 
-	// Kysymyslista 
+	// Kysymyslista ja vaihtoehtolista
 	@RequestMapping("hallinta/kysymykset/{id}")
 	public String naytaKysymyslista(Model model, @PathVariable int id) {
 		List<Kysymys> kysymykset = dao.haeKaikki(vdao, id);
 		int kyselyId = id;
 		
+		List<Vaihtoehto> vaihtoehdot = new ArrayList<>();
+		
+		for(Kysymys k : kysymykset) {
+			vaihtoehdot = vdao.haeKaikki(k.getId());
+		}
+		
+		model.addAttribute("vaihtoehdot", vaihtoehdot);
 		model.addAttribute("kysymykset", kysymykset);
 		model.addAttribute("kyselyId", kyselyId);
 		
 		return "hallinta/kysymykset";
 	}
+	
+	
 
 	// Yhden kysymyksen poisto
 	@RequestMapping(value = "hallinta/kysymykset/{id}/poista")
