@@ -2,9 +2,18 @@ package backend.bean;
 
 import java.util.List;
 
-public class VastausWrapper {
+public class VastausKerta {
 	
-	List<Vastaus> vastaukset;
+	private int id;
+	private List<Vastaus> vastaukset;
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public List<Vastaus> getVastaukset() {
 		return vastaukset;

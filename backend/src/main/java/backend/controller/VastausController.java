@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import backend.bean.Vastaus;
-import backend.bean.VastausWrapper;
 import backend.dao.VastausDAO;
 
 @Controller

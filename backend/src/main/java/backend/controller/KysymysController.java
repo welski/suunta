@@ -43,9 +43,6 @@ public class KysymysController {
         return kysymys;
     }
 	
-	
-	// TODO REVIEW kaksi eri metodia -> KysymyksTeksti ja KysymysMonivalinta ?
-	
 	// JSP, Uuden kysymyksen luonti
 	// Muoto: teksti
 	@RequestMapping(value="hallinta/kyselyt/{kyselyId}/lisaaTeksti", method=RequestMethod.POST)
