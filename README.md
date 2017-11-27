@@ -119,8 +119,8 @@ Vastaus:
 
 ```
 
-### Yhden kyselyn yhden kysymykset vastausten tallentaminen
-API-osoite: http://proto331.haaga-helia.fi:8080/backend/kyselyt/{kyselyId}/kysymykset/{kysymysId}
+### Yhden kyselyn kaikkien kysymysten vastausten tallentaminen
+API-osoite: http://proto331.haaga-helia.fi:8080/backend/kyselyt/{kyselyId}/vastaukset
 
 Metodi: POST
 
