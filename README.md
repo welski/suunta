@@ -5,16 +5,16 @@ Ohjelmistoprojekti I, feedback-kysely
 ## Suunniteludokumentit
 
 * [Käsitekaavio](documents/SWD4TN022-4_Suunta_kasitekaavio.vsdx) *Päivitetty 20.11.2017 (Kaikki)*
-* [Luokkakaavio (Java-kaavio)](documents/SWD4TN022-4_Suunta_luokkakaavio.vsdx) *Päivitetty 20.11.2017 (Kaikki)*
+* [Luokkakaavio (Java-kaavio)](documents/SWD4TN022-4_Suunta_luokkakaavio.vsdx) *Päivitetty 27.11.2017 (Kaikki)*
 * [Relaatiokaavio](documents/SWD4TN022-4_Suunta_relaatiokaavio.vsdx) *Päivitetty 20.11.2017 (Kaikki)*
 
 ## Sprint 1
-[Backlog](documents/Suunta_Sprint1_Backlog.xlsx) *Päivitetty 15.11.2017 (Mikko)*
+[Backlog](documents/Suunta_Sprint1_Backlog.xlsx) *Päivitetty 28.11.2017 (Mikko)*
 
 # Rest API
 
-Versio 0.3
-Päivitetty 20.11.2017 (Mikko)
+Versio 0.5
+Päivitetty 27.11.2017 (Mikko)
 
 ## Sisältö
 
@@ -22,6 +22,7 @@ Päivitetty 20.11.2017 (Mikko)
 [2. Yksi kysely](https://github.com/welski/suunta#yksi-kysely)<br/>
 [3. Yhden kyselyn kaikki kysymykset](https://github.com/welski/suunta#yhden-kyselyn-kaikki-kysymykset)<br/>
 [4. Yhden kyselyn yksi kysymys](https://github.com/welski/suunta#yhden-kyselyn-yksi-kysymys)<br/>
+[5. Yhden kyselyn kaikkien kysymysten vastausten tallentaminen](https://github.com/welski/suunta#yhden-kyselyn-kaikkien-kysymysten-vastausten-tallentaminen)
 
 ### Kaikki kyselyt
 API-osoite: http://proto331.haaga-helia.fi:8080/backend/kyselyt
@@ -118,4 +119,37 @@ Vastaus:
 
 ```
 
+### Yhden kyselyn kaikkien kysymysten vastausten tallentaminen
+API-osoite: http://proto331.haaga-helia.fi:8080/backend/kyselyt/{kyselyId}/vastaukset
 
+Metodi: POST
+
+Pyyntö:
+
+```
+[
+	{
+		"teksti" : "MyNet",
+		"kysymysId" : 0
+	},
+	{
+		"teksti" : "Google",
+		"kysymysId" : 1
+		}
+	
+]
+```
+
+Vastaus:
+```
+[
+    {
+        "id": 8,
+        "teksti": "MyNet"
+    },
+    {
+        "id": 9,
+        "teksti": "Google"
+    }
+]
+```

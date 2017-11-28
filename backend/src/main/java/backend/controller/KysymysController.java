@@ -52,7 +52,7 @@ public class KysymysController {
 	public String luoUusiKysymysTeksti(Model model, @PathVariable int kyselyId, @ModelAttribute(value="kysymys") KysymysTeksti kysymys) {
 		model.addAttribute("kysymys", kysymys);
 		dao.luoUusiTekstikysymys(kysymys, kyselyId);
-		return "redirect:/hallinta/kyselyt";
+		return "redirect:/hallinta/kysymykset/{kyselyId}";
 	}
 	
 	// JSP, Uuden kysymyksen luonti
@@ -70,24 +70,34 @@ public class KysymysController {
 		}
 		
 		dao.luoUusiMonivalintaKysymys(vdao, kysymys, kyselyId, vaihtoehdot);
-		return "redirect:/hallinta/kyselyt";
+		return "redirect:/hallinta/kysymykset/{kyselyId}";
 	}
 
-
-	
-/*	
-	// Kysymyslista testaukseen
-	@RequestMapping("hallinta/kysymykset")
-	public String naytaKysymyslista(Model model) {
-		List<Kysymys> kysymykset = dao.haeKaikki();
+	// Kysymyslista ja vaihtoehtolista
+	@RequestMapping("hallinta/kysymykset/{id}")
+	public String naytaKysymyslista(Model model, @PathVariable int id) {
+		List<Kysymys> kysymykset = dao.haeKaikki(vdao, id);
+		int kyselyId = id;
+		
+		List<Vaihtoehto> vaihtoehdot = new ArrayList<>();
+		
+		for(Kysymys k : kysymykset) {
+			vaihtoehdot = vdao.haeKaikki(k.getId());
+		}
+		
+		model.addAttribute("vaihtoehdot", vaihtoehdot);
 		model.addAttribute("kysymykset", kysymykset);
+		model.addAttribute("kyselyId", kyselyId);
+		
 		return "hallinta/kysymykset";
 	}
-*/	
+	
+	
 
 	// Yhden kysymyksen poisto
-	@RequestMapping(value = "kysymykset/{id}", method = RequestMethod.DELETE)
-	public void poistaKysymys(@PathVariable int id) {
+	@RequestMapping(value = "hallinta/kysymykset/{id}/poista")
+	public String poistaKysymys(Model model, @PathVariable int id) {
 		dao.poista(id);
+		return "redirect:/hallinta/kyselyt";
 	}
 }

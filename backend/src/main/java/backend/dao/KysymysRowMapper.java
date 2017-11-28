@@ -26,6 +26,9 @@ public class KysymysRowMapper implements RowMapper<Kysymys> {
 		String teksti = rs.getString("teksti");
 		
 		// Tutkitaan, onko kyseess‰ monivalintakysymys
+		
+		// TODO: t‰m‰n voisi muuttaa fiksumpaa muotoon, ensimm‰isen tarkistuksen tulisi perustua siihen,
+		// onko monivalinta-arvo null vai ei
 		try {
 			if (vdao.haeKaikki(id) != null) {
 				// Kysymys sis‰lt‰‰ monta vastausvaihtoehtoa
