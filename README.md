@@ -5,11 +5,11 @@ Ohjelmistoprojekti I, feedback-kysely
 ## Suunniteludokumentit
 
 * [Käsitekaavio](documents/SWD4TN022-4_Suunta_kasitekaavio.vsdx) *Päivitetty 20.11.2017 (Kaikki)*
-* [Luokkakaavio (Java-kaavio)](documents/SWD4TN022-4_Suunta_luokkakaavio.vsdx) *Päivitetty 20.11.2017 (Kaikki)*
+* [Luokkakaavio (Java-kaavio)](documents/SWD4TN022-4_Suunta_luokkakaavio.vsdx) *Päivitetty 27.11.2017 (Kaikki)*
 * [Relaatiokaavio](documents/SWD4TN022-4_Suunta_relaatiokaavio.vsdx) *Päivitetty 20.11.2017 (Kaikki)*
 
 ## Sprint 1
-[Backlog](documents/Suunta_Sprint1_Backlog.xlsx) *Päivitetty 15.11.2017 (Mikko)*
+[Backlog](documents/Suunta_Sprint1_Backlog.xlsx) *Päivitetty 28.11.2017 (Mikko)*
 
 # Rest API
 
@@ -129,13 +129,13 @@ Pyyntö:
 ```
 [
 	{
-		"id" : 0,
-		"teksti" : "MyNet"
+		"teksti" : "MyNet",
+		"kysymysId" : 0
 	},
 	{
-		"id" : 1,
-		"teksti" : "Google"
-	}
+		"teksti" : "Google",
+		"kysymysId" : 1
+		}
 	
 ]
 ```
