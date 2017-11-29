@@ -130,12 +130,12 @@ Pyyntö:
 [
 	{
 		"teksti" : "MyNet",
-		"kysymysId" : 0
+		"kysymysId" : 2
 	},
 	{
 		"teksti" : "Google",
-		"kysymysId" : 1
-		}
+		"kysymysId" : 3
+	}
 	
 ]
 ```
@@ -144,12 +144,14 @@ Vastaus:
 ```
 [
     {
-        "id": 8,
-        "teksti": "MyNet"
+        "id": 10,
+        "teksti": "MyNet",
+        "kysymysId": 2
     },
     {
-        "id": 9,
-        "teksti": "Google"
+        "id": 11,
+        "teksti": "Google",
+        "kysymysId": 2
     }
 ]
 ```
