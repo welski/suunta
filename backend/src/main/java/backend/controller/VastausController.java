@@ -1,6 +1,6 @@
 package backend.controller;
 
-import java.util.List;
+import java.util.*;
 
 import javax.inject.Inject;
 
@@ -43,7 +43,18 @@ public class VastausController {
 
 			
 			List<Vastaus> vastaukset = dao.haeKaikki(id);
-			model.addAttribute("vastaukset", vastaukset);
+			
+			List<String> pelkatTekstit = new ArrayList<String>();
+			for (Vastaus vastaus : vastaukset) {
+				pelkatTekstit.add(vastaus.getTeksti());
+			}
+			Set<String> mySet = new HashSet<String>(pelkatTekstit);
+			HashMap hm = new HashMap();
+			for(String s : mySet){
+ 				hm.put(s, Collections.frequency(pelkatTekstit,s));
+			}
+			
+			model.addAttribute("vastaukset", hm);
 			
 			return "hallinta/vastaukset";
 			

@@ -29,10 +29,10 @@
 					<thead>
 						<tr class="col">
 							<th class="col-xs-auto">
-								id
+								vastaus
 							</th>
 							<th class="col-xs-auto">
-								vastaus
+								lkm
 							</th>
 							
 						</tr>
@@ -40,8 +40,8 @@
 					<tbody>
 						<c:forEach items="${vastaukset}" var="vastaus">
 							<tr>
-								<th scope="row"><c:out value="${vastaus.id}"/></th>
-								<td><c:out value="${vastaus.teksti}"/></td>
+								<th scope="row"><c:out value="${vastaus.key}"/></th>
+								<td><c:out value="${vastaus.value}"/></td>
 							</tr>
 							
 						</c:forEach>
