@@ -30,6 +30,8 @@
 			<label for="teksti">Kysymys</label>
 			<input type="text" class="form-control" name="teksti" value=""/>
 		</div>
+		<div id="vaihtoehdot">
+		
 		<div class="form-group">
 			<label for="vaihtoehto">Vaihtoehto</label>
 			<input type="text" class="form-control" name="vaihtoehto" value=""/>
@@ -41,6 +43,13 @@
 		<div class="form-group">
 			<label for="vaihtoehto">Vaihtoehto</label>
 			<input type="text" class="form-control" name="vaihtoehto" value=""/>
+		</div>
+		
+		</div>
+		
+		<div class="form-group">
+			<button type="button" class="btn btn-secondary" id="lisaaNappi">+ Lisää vaihtoehto</button>
+			<button type="button" class="btn btn-secondary" id="poistaNappi">- Poista vaihtoehto</button>
 		</div>
 		<div class="form-group">
 			<input type="submit" class="btn btn-primary" value="Lisää" />
@@ -51,4 +60,16 @@
 
 	</div>
 </body>
+<script>
+	$(document).ready(function () {
+		$("#lisaaNappi").on("click", function () {
+			var vaihtoehto = "<div class='form-group'><label for='vaihtoehto'>Vaihtoehto</label> <input type='text' class='form-control' name='vaihtoehto' value=''/></div>";
+			$("#vaihtoehdot").append(vaihtoehto);
+		});
+		$("#poistaNappi").on("click", function () {
+			$("#vaihtoehdot div").last().remove();
+		});
+	});
+
+</script>
 </html>
