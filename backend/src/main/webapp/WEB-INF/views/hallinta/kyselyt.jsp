@@ -14,31 +14,45 @@
 
 <link rel="stylesheet" type="text/css" href="../resources/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="../resources/css/backend.css">
+<link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
 
 <title>Kyselyt</title>
 </head>
 <body>
-	<div class="container">
+<header>
+
+ 	<nav>
 		<div class="row">
-			<h1>
+			<ul class="main-nav">
+				<li><a href="/backend">Etusivu</a></li>
+				<li><a href="/backend/hallinta/kyselyt">Kyselyt</a></li>
+				<li><a href="#">Kirjautuminen</a></li>
+			</ul>
+		</div>
+    </nav>
+    
+</header>
+	<div class="container">
+			<h1 class="otsikko">
 				Kyselyt
 			</h1>
-		</div>
-		<div class="col-md-12">
 		<table class="table table-striped">
 			<thead>
 				<tr class="col">
 					<th class="col-xs-auto">
-						id
+						Id
 					</th>
 					<th class="col-xs-auto">
-						nimi
+						Nimi
 					</th>
 					<th class="col">
-						kuvaus
+						Kuvaus
 					</th>
 					<th class="col">
-						muokkaa
+						Aktiivinen
+					</th>
+					<th class="col">
+						Muokkaa
 					</th>
 				</tr>
 			</thead>
@@ -48,7 +62,8 @@
 					<tr>
 						<th scope="row"><c:out value="${kysely.id}" /></th>
 						<td><c:out value="${kysely.nimi}" /></td>
-						<td><c:out value="${kysely.kuvaus}" /></td>						
+						<td><c:out value="${kysely.kuvaus}" /></td>
+						<td></td>							
 						<td>
 							<a href="kysymykset/<c:out value="${kysely.id}" />">
 							Näytä kysymykset</a>
@@ -57,15 +72,13 @@
 				</c:forEach>
 			</tbody>
 		</table>
-		</div>
-
 	<form:form modelAttribute="kysely" method="post">
 		<div class="form-group">
-			<label for="nimi">Nimi</label>
+			<label for="nimi">Nimi:</label>
 			<input type="text" class="form-control" name="nimi" value=""/>
 		</div>
 		<div class="form-group">
-			<label for="nimi">Kuvaus</label>
+			<label for="nimi">Kuvaus:</label>
 			<input type="text" class="form-control" name="kuvaus" value=""/>
 		</div>
 		<div class="form-group">

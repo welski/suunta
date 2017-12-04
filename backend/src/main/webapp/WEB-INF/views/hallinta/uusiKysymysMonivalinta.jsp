@@ -14,32 +14,42 @@
 
 <link rel="stylesheet" type="text/css" href="../../../resources/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="../../../resources/css/backend.css">
+<link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
 
 <title>Uusi monivalintakysymys</title>
 </head>
 <body>
-	<div class="container">
+<header>
+<nav>
 		<div class="row">
-			<h1>
+			<ul class="main-nav">
+				<li><a href="/backend">Etusivu</a></li>
+				<li><a href="/backend/hallinta/kyselyt">Kyselyt</a></li>
+				<li><a href="#">Kirjautuminen</a></li>
+			</ul>
+		</div>
+    </nav>
+</header>
+	<div class="container">
+			<h1 class="otsikko">
 				Lisää uusi monivalintakysymys
 			</h1>
-		</div>
 
 	<form:form modelAttribute="kysymysMv" method="post">
 		<div class="form-group">
-			<label for="teksti">Kysymys</label>
+			<label for="teksti">Kysymys:</label>
 			<input type="text" class="form-control" name="teksti" value=""/>
 		</div>
 		<div class="form-group">
-			<label for="vaihtoehto">Vaihtoehto</label>
+			<label for="vaihtoehto">Vaihtoehto:</label>
 			<input type="text" class="form-control" name="vaihtoehto" value=""/>
 		</div>
 		<div class="form-group">
-			<label for="vaihtoehto">Vaihtoehto</label>
+			<label for="vaihtoehto">Vaihtoehto:</label>
 			<input type="text" class="form-control" name="vaihtoehto" value=""/>
 		</div>
 		<div class="form-group">
-			<label for="vaihtoehto">Vaihtoehto</label>
+			<label for="vaihtoehto">Vaihtoehto:</label>
 			<input type="text" class="form-control" name="vaihtoehto" value=""/>
 		</div>
 		<div class="form-group">

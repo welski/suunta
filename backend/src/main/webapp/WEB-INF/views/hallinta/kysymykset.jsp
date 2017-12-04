@@ -14,17 +14,26 @@
 	
 	<link rel="stylesheet" type="text/css" href="../../resources/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../../resources/css/backend.css">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
 	
 	<title>Kysymykset</title>
 	</head>
 	<body>
+	<header>
+		<nav>
+			<div class="row">
+				<ul class="main-nav">
+					<li><a href="/backend">Etusivu</a></li>
+					<li><a href="/backend/hallinta/kyselyt">Kyselyt</a></li>
+					<li><a href="#">Kirjautuminen</a></li>
+				</ul>
+			</div>
+	    </nav>
+	</header>
 		<div class="container">
 		
-			<div class="row">
-				<h1>Kysymykset</h1>
-			</div>
+				<h1 class="otsikko">Kysymykset</h1>
 			
-			<div class="col-md-12">
 				<table class="table table-striped">
 					<thead>
 						<tr class="col">
@@ -51,7 +60,7 @@
 						</c:forEach>
 					</tbody>
 				</table>
-			</div>
+				
 			<div class="form-group">
 			<a href="/backend/hallinta/kyselyt/<c:out value="${kyselyId}" />/lisaaMonivalinta" class="btn btn-primary">Lisää monivalintakysymys</a>
 			<a href="/backend/hallinta/kyselyt/<c:out value="${kyselyId}" />/lisaaTeksti" class="btn btn-danger">Lisää tekstikysymys</a>

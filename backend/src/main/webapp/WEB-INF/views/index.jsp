@@ -11,19 +11,28 @@
 
 <link rel="stylesheet" type="text/css" href="resources/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="resources/css/backend.css">
+<link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
 
 <title>Backend</title>
 </head>
 <body>
+<header>
+<nav>
+		<div class="row">
+			<ul class="main-nav">
+				<li><a href="/backend">Etusivu</a></li>
+				<li><a href="/backend/hallinta/kyselyt">Kyselyt</a></li>
+				<li><a href="#">Kirjautuminen</a></li>
+			</ul>
+		</div>
+    </nav>
+</header>
 <div class="container">
-
-	<div class="row">
 		<div class="col-12">
 			<h4>Backend</h4>
 		</div>
-	</div>
-	
-	<div class="row">
+		
+		<div class="row">
 		<h2>Rest API</h2>
 	</div>
 	<div class="row">
@@ -45,6 +54,6 @@
 			<a href="hallinta/kyselyt">Kyselyiden hallinta</a>
 		</div>
 	</div>
-</div>
+	</div>
 </body>
 </html>

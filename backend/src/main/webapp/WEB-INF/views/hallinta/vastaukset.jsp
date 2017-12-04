@@ -13,26 +13,34 @@
 		content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	
 	<link rel="stylesheet" type="text/css" href="../../../resources/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="../../resources/css/backend.css">
+	<link rel="stylesheet" type="text/css" href="../../../resources/css/backend.css">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
 	
 	<title>Vastaukset</title>
 	</head>
+	<header>
+	<nav>
+			<div class="row">
+				<ul class="main-nav">
+					<li><a href="/backend">Etusivu</a></li>
+					<li><a href="/backend/hallinta/kyselyt">Kyselyt</a></li>
+					<li><a href="#">Kirjautuminen</a></li>
+				</ul>
+			</div>
+	    </nav>
+	</header>
 	<body>
 		<div class="container">
-		
-			<div class="row">
-				<h1>Vastaukset</h1>
-			</div>
+				<h1 class="otsikko">Vastaukset</h1>
 			
-			<div class="col-md-12">
 				<table class="table table-striped">
 					<thead>
 						<tr class="col">
 							<th class="col-xs-auto">
-								vastaus
+								Vastaus
 							</th>
 							<th class="col-xs-auto">
-								lkm
+								Lkm
 							</th>
 							
 						</tr>
@@ -40,14 +48,12 @@
 					<tbody>
 						<c:forEach items="${vastaukset}" var="vastaus">
 							<tr>
-								<th scope="row"><c:out value="${vastaus.key}"/></th>
+								<td scope="row"><c:out value="${vastaus.key}"/></td>
 								<td><c:out value="${vastaus.value}"/></td>
 							</tr>
-							
 						</c:forEach>
 					</tbody>
 				</table>
 			</div>
-		</div>
 	</body>
 </html>

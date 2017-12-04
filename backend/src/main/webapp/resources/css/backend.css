@@ -1,3 +1,44 @@
+body {
+	font-family: 'Lato', sans-serif;
+	font-weight: 300 !important;
+	font-size: 18px;
+}
+
 .container {
 	padding: 20px;
+}
+
+.otsikko {
+	padding: 8px 0;
+	border-bottom: 2px solid cadetblue;
+}
+
+.main-nav {
+    list-style: none;
+    margin-top: 20px;
+}
+
+.main-nav li {
+    display: inline-block;
+    margin-right: 40px;
+}
+
+.main-nav li a:link,
+.main-nav li a:visited {
+    padding: 8px 0;
+    text-decoration: none;
+    color: #000000;
+    font-size: 90%;
+    text-transform: uppercase;
+    border-bottom: 2px solid transparent;
+    transition: border 0.2s;
+}
+
+.main-nav li a:hover,
+.main-nav li a:active {
+    border-bottom: 2px solid cadetblue;
+}
+
+table > thead > tr > th {
+	    border-top-color: #ffffff !important;
 }
