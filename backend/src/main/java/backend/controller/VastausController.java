@@ -26,9 +26,7 @@ public class VastausController {
 	
 	@Inject
 	KysymysDAO kdao;
-	
-	@Inject
-	VaihtoehtoDAO vdao;
+
 	
 	// REST, JSON-muotoisten vastausten tallentaminen yhdestä kysymyksestä
 	@RequestMapping(value = "kyselyt/{kyselyId}/vastaukset", method = RequestMethod.POST)
@@ -41,9 +39,9 @@ public class VastausController {
 		return vastaukset;
 	}
 	
-	//REST, JSON-muodossa vastausten lähettmäminen kaikista kysymyksistä
-	@RequestMapping(value = "kyselyt/{kyselyId}/kysymykset/{kysymysId}", method = RequestMethod.GET)
-	public @ResponseBody List<Vastaus> haeVastauksetJSON(@PathVariable int kyselyId, int kysymysId) {
+	//REST, JSON-muodossa yhden kyselyn yhden kysymyksen kaikkien vastausten haku
+	@RequestMapping(value = "kyselyt/{kyselyId}/kysymykset/{kysymysId}/vastaukset", method = RequestMethod.GET)
+	public @ResponseBody List<Vastaus> haeKyselynVastauksetJSON(@PathVariable int kysymysId) {
 		
 		List<Vastaus> kysymyksenVastaukset = dao.haeKaikki(kysymysId);
 		
