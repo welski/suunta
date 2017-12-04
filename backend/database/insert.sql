@@ -186,5 +186,25 @@ kysymys_id
 3
 );
 
+INSERT INTO
+rooli
+VALUES
+(2,'ROLE_ADMIN'),
+(1,'ROLE_USER');
+);
+
+INSERT INTO
+kayttaja
+VALUES
+(1,'andromeda','9ad2c637b12b58b58cfec466c87cec4e0d62fbc04e2a5b9e10f65d0c3b91e4bd6c9eeedc98929627'),
+(2,'suunta','26c69ab8404e8f4f305be385a9bac79f75f8adcecd7d960252c07086a74758d431ae840493eea83e');
+
+	
+INSERT INTO
+kayttaja_rooli
+VALUES
+(1,1,1),
+(2,2,2);
+
 
  
