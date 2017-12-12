@@ -25,7 +25,7 @@
 				<ul class="main-nav">
 					<li><a href="/backend">Etusivu</a></li>
 					<li><a href="/backend/hallinta/kyselyt">Kyselyt</a></li>
-					<li><a href="#">Kirjautuminen</a></li>
+					<li><a href="https://github.com/welski/suunta">REST Api</a></li>
 				</ul>
 			</div>
 	    </nav>

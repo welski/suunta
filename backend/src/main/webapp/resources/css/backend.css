@@ -16,7 +16,12 @@ body {
 .main-nav {
     list-style: none;
     margin-top: 20px;
+
 }
+
+ header {
+ background-color: #F4F4F4;
+ }
 
 .main-nav li {
     display: inline-block;
@@ -41,4 +46,8 @@ body {
 
 table > thead > tr > th {
 	    border-top-color: #ffffff !important;
+}
+
+h2 {
+	border-bottom: 1px solid black;
 }
