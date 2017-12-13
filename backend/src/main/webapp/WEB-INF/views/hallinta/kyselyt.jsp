@@ -39,20 +39,17 @@
 		<table class="table table-striped">
 			<thead>
 				<tr class="col">
-					<th class="col-xs-auto">
+					<th class="col-1">
 						Id
 					</th>
-					<th class="col-xs-auto">
+					<th class="col-3">
 						Nimi
 					</th>
-					<th class="col">
+					<th class="col-4">
 						Kuvaus
 					</th>
-					<th class="col">
-						Aktiivinen
-					</th>
-					<th class="col">
-						Muokkaa
+					<th class="col-3">
+						Näytä kysymykset
 					</th>
 				</tr>
 			</thead>
@@ -63,7 +60,6 @@
 						<th scope="row"><c:out value="${kysely.id}" /></th>
 						<td><c:out value="${kysely.nimi}" /></td>
 						<td><c:out value="${kysely.kuvaus}" /></td>
-						<td></td>							
 						<td>
 							<a href="kyselyt/<c:out value="${kysely.id}/kysymykset" />">
 							Näytä kysymykset</a>
@@ -74,30 +70,15 @@
 		</table>
 		<div class="row">
 			<div class="col">
-				<h1 class="otsikko">
-				Lisää uusi kysely
-				</h1>
+				<a href="/backend/hallinta/kyselyt/uusiKysely" class="btn btn-primary">Lisää uusi kysely</a>
 			</div>
 		</div>
-		<div class="row">
+	<div class="row">
 		<div class="col">
-	<form:form modelAttribute="kysely" method="post">
-		<div class="form-group">
-			<label for="nimi">Nimi:</label>
-			<input type="text" class="form-control" name="nimi" value=""/>
+		<br><br>
+		<a href="/backend/" class="btn btn-secondary">Palaa etusivulle</a>
 		</div>
-		<div class="form-group">
-			<label for="nimi">Kuvaus:</label>
-			<input type="text" class="form-control" name="kuvaus" value=""/>
-		</div>
-		<div class="form-group">
-			<input type="submit" class="btn btn-primary" value="Lisää" />
-			<input type="reset" class="btn btn-danger" value="Tyhjennä" />
-		</div>
-	</form:form>
-	</div></div>
-	
-
+	</div>
 	</div>
 </body>
 </html>

@@ -79,6 +79,8 @@
 		</div>
 
 	</form:form>
+	
+	<a href="/backend/hallinta/kyselyt/${kyselyId}/kysymykset" class="btn btn-secondary">Takaisin</a>
 
 	</div>
 </body>

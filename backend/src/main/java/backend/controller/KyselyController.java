@@ -41,8 +41,14 @@ public class KyselyController {
 	//	return kysely;
 	// }
 	
+	// JSP, uuden kyselyn luontisivu
+	@RequestMapping("hallinta/kyselyt/uusiKysely")
+	public String naytaKyselynLuonti(Model model) {
+		return "hallinta/uusiKysely";
+	}
+	
 	// JSP, Uuden kyselyn luonti
-	@RequestMapping(value="hallinta/kyselyt", method=RequestMethod.POST)
+	@RequestMapping(value="hallinta/kyselyt/uusiKysely", method=RequestMethod.POST)
 	public String luoUusiKysely(Model model, @ModelAttribute(value="kysely") Kysely kysely) {
 		model.addAttribute("kysely", kysely);
 		dao.luoUusi(kysely);
@@ -58,17 +64,17 @@ public class KyselyController {
 	}
 	
 	// JSP, uuden tekstikysymyksen lisäyssivu
-	@RequestMapping("hallinta/kyselyt/{id}/lisaaTeksti")
-	public String naytaTekstikysymysLomake(Model model, @PathVariable int id) {
-		Kysely kysely = dao.etsi(id);
+	@RequestMapping("hallinta/kyselyt/{kyselyId}/lisaaTeksti")
+	public String naytaTekstikysymysLomake(Model model, @PathVariable int kyselyId) {
+		Kysely kysely = dao.etsi(kyselyId);
 		model.addAttribute("kysely", kysely);
 		return "hallinta/uusiKysymysTeksti";
 	}
 
 	// JSP, uuden monivalintakysymyksen lisäyssivu
-	@RequestMapping("hallinta/kyselyt/{id}/lisaaMonivalinta")
-	public String naytaMonivalintakysymysLomake(Model model, @PathVariable int id) {
-		Kysely kysely = dao.etsi(id);
+	@RequestMapping("hallinta/kyselyt/{kyselyId}/lisaaMonivalinta")
+	public String naytaMonivalintakysymysLomake(Model model, @PathVariable int kyselyId) {
+		Kysely kysely = dao.etsi(kyselyId);
 		model.addAttribute("kysely", kysely);
 		return "hallinta/uusiKysymysMonivalinta";
 	}

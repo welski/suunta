@@ -52,7 +52,7 @@ public class KysymysController {
 	public String luoUusiKysymysTeksti(Model model, @PathVariable int kyselyId, @ModelAttribute(value="kysymys") KysymysTeksti kysymys) {
 		model.addAttribute("kysymys", kysymys);
 		dao.luoUusiTekstikysymys(kysymys, kyselyId);
-		return "redirect:/hallinta/kysymykset/{kyselyId}";
+		return "redirect:/hallinta/kyselyt/{kyselyId}/kysymykset";
 	}
 	
 	// JSP, Uuden kysymyksen luonti
@@ -70,7 +70,7 @@ public class KysymysController {
 		}
 		
 		dao.luoUusiMonivalintaKysymys(vdao, kysymys, kyselyId, vaihtoehdot);
-		return "redirect:/hallinta/kysymykset/{kyselyId}";
+		return "redirect:/hallinta/kyselyt/{kyselyId}/kysymykset";
 	}
 
 	// Kysymyslista ja vaihtoehtolista
