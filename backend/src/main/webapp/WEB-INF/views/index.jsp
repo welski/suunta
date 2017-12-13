@@ -22,27 +22,59 @@
 			<ul class="main-nav">
 				<li><a href="/backend">Etusivu</a></li>
 				<li><a href="/backend/hallinta/kyselyt">Kyselyt</a></li>
-				<li><a href="#">Kirjautuminen</a></li>
+				<li><a href="https://github.com/welski/suunta">REST Api</a></li>
 			</ul>
 		</div>
     </nav>
 </header>
 <div class="container">
-		<div class="col-12">
-			<h4>Backend</h4>
+		<div class="row">
+			<div class="col">
+				<h1>Backend</h1>
+			</div>
 		</div>
 		
 		<div class="row">
-		<h2>Rest API</h2>
-	</div>
-	<div class="row">
-		<a href="http://github.com/welski/suunta">Rest API @ GitHub</a>
-	</div>
+			<div class="col">
+				<p>Suunta-ryhmä</p>
+				<p>Järvinen, Karlsson, Kivi, Kontinen 2017</p>
+			</div>
+		</div>
+		
+		
+		
+		<div class="row" style="margin-top: 40px;">
+			<div class="col">
+				<h2>Rest API</h2>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col">
+				<a href="http://github.com/welski/suunta">Rest API @ GitHub</a>
+			</div>
+		</div>
+		
+		<div class="row" style="margin-top: 40px;">
+			<div class="col">
+				<h2>Kyselypalvelun hallinta</h2>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col">
+				<a href="hallinta/kyselyt">Siirry hallintaan</a>
+			</div>
+		</div>
 
 	<div class="row" style="margin-top: 40px;">
+		<div class="col">
+			<h2>JSON-esimerkkejä testaukseen</h2>
+		</div>
+	</div>
 	
-		<div class="col-6">
-			<h2>JSON</h2>
+	<div class="row" style="margin-top: 40px;">
+		<div class="col">
 			<ul>
 				<li><a href="kyselyt">Kaikki kyselyt</a></li>
 				<li><a href="kyselyt/1">Esimerkki: Yksi kysely</a></li>
@@ -50,10 +82,8 @@
 				<li><a href="kyselyt/1/kysymykset/1">Esimerkki: Yhden kyselyn yksi kysymys</a></li>
 			</ul>
 		</div>
-		<div class="col-6">
-			<a href="hallinta/kyselyt">Kyselyiden hallinta</a>
-		</div>
 	</div>
-	</div>
+	
+</div>
 </body>
 </html>

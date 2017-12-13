@@ -1,6 +1,7 @@
 package backend.controller;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 import javax.inject.Inject;
 
@@ -51,23 +52,34 @@ public class VastausController {
 	
 	// JSP
 	// Kysymyslista ja vaihtoehtolista
-		@RequestMapping("hallinta/kysymykset/{id}/vastaukset")
-		public String naytaVastaukset(Model model, @PathVariable int id) {
+		@RequestMapping("hallinta/kyselyt/{kyselyId}/kysymykset/{kysymysId}/vastaukset")
+		public String naytaVastaukset(Model model, @PathVariable int kyselyId, @PathVariable int kysymysId) {
 
 			
-			List<Vastaus> vastaukset = dao.haeKaikki(id);
+			List<Vastaus> vastaukset = dao.haeKaikki(kysymysId);
 			
 			List<String> pelkatTekstit = new ArrayList<String>();
+			
 			for (Vastaus vastaus : vastaukset) {
 				pelkatTekstit.add(vastaus.getTeksti());
 			}
+			
 			Set<String> mySet = new HashSet<String>(pelkatTekstit);
-			HashMap hm = new HashMap();
+			
+			HashMap<String, Integer> hm = new HashMap<>();
+			
 			for(String s : mySet){
  				hm.put(s, Collections.frequency(pelkatTekstit,s));
 			}
 			
-			model.addAttribute("vastaukset", hm);
+			Map<String, Integer> result = hm.entrySet().stream()
+	                .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
+	                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,
+	                        (oldValue, newValue) -> oldValue, LinkedHashMap::new));
+			
+			model.addAttribute("vastaukset", result);
+			model.addAttribute("kyselyId", kyselyId);
+			
 			
 			return "hallinta/vastaukset";
 			

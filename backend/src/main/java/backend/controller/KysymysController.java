@@ -52,13 +52,13 @@ public class KysymysController {
 	public String luoUusiKysymysTeksti(Model model, @PathVariable int kyselyId, @ModelAttribute(value="kysymys") KysymysTeksti kysymys) {
 		model.addAttribute("kysymys", kysymys);
 		dao.luoUusiTekstikysymys(kysymys, kyselyId);
-		return "redirect:/hallinta/kysymykset/{kyselyId}";
+		return "redirect:/hallinta/kyselyt/{kyselyId}/kysymykset";
 	}
 	
 	// JSP, Uuden kysymyksen luonti
 	// Muoto: monivalinta
 	@RequestMapping(value="hallinta/kyselyt/{kyselyId}/lisaaMonivalinta", method=RequestMethod.POST)
-	public String luoUusiKysymysMonivalinta(Model model, VaihtoehtoDAO vdao, @PathVariable int kyselyId, @ModelAttribute(value="kysymysMv") KysymysMonivalinta kysymys, @RequestParam("vaihtoehto") List<String> vaihtoehtoKentat) {
+	public String luoUusiKysymysMonivalinta(Model model, VaihtoehtoDAO vdao, @PathVariable int kyselyId, @ModelAttribute(value="kysymysMv") KysymysMonivalinta kysymys, @RequestParam("vaihtoehto") List<String> vaihtoehtoKentat, @RequestParam("monivalinta") boolean monivalinta) {
 		model.addAttribute("kysymys", kysymys);
 		
 		List<Vaihtoehto> vaihtoehdot = new ArrayList<Vaihtoehto>(3);
@@ -70,14 +70,13 @@ public class KysymysController {
 		}
 		
 		dao.luoUusiMonivalintaKysymys(vdao, kysymys, kyselyId, vaihtoehdot);
-		return "redirect:/hallinta/kysymykset/{kyselyId}";
+		return "redirect:/hallinta/kyselyt/{kyselyId}/kysymykset";
 	}
 
 	// Kysymyslista ja vaihtoehtolista
-	@RequestMapping("hallinta/kysymykset/{id}")
-	public String naytaKysymyslista(Model model, @PathVariable int id) {
-		List<Kysymys> kysymykset = dao.haeKaikki(vdao, id);
-		int kyselyId = id;
+	@RequestMapping("hallinta/kyselyt/{kyselyId}/kysymykset")
+	public String naytaKysymyslista(Model model, @PathVariable int kyselyId) {
+		List<Kysymys> kysymykset = dao.haeKaikki(vdao, kyselyId);
 		
 		List<Vaihtoehto> vaihtoehdot = new ArrayList<>();
 		

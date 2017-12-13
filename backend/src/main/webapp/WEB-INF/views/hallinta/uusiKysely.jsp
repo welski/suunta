@@ -12,15 +12,16 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<link rel="stylesheet" type="text/css" href="../../../resources/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="../../../resources/css/backend.css">
+<link rel="stylesheet" type="text/css" href="../../resources/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../../resources/css/backend.css">
 <link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
 
-<title>Uusi tekstikysymys</title>
+<title>Uusi kysely</title>
 </head>
 <body>
 <header>
-<nav>
+
+ 	<nav>
 		<div class="row">
 			<ul class="main-nav">
 				<li><a href="/backend">Etusivu</a></li>
@@ -29,25 +30,35 @@
 			</ul>
 		</div>
     </nav>
+    
 </header>
 	<div class="container">
-			<h1 class="otsikko">
-				Lisää uusi tekstikysymys
-			</h1>
-
-	<form:form modelAttribute="kysymys" method="post">
+		<div class="row">
+			<div class="col">
+				<h1 class="otsikko">
+				Lisää uusi kysely
+				</h1>
+			</div>
+		</div>
+		<div class="row">
+		<div class="col">
+	<form:form modelAttribute="kysely" method="post">
 		<div class="form-group">
-			<label for="teksti">Kysymys:</label>
-			<input type="text" class="form-control" name="teksti" value=""/>
+			<label for="nimi">Nimi:</label>
+			<input type="text" class="form-control" name="nimi" value=""/>
+		</div>
+		<div class="form-group">
+			<label for="nimi">Kuvaus:</label>
+			<input type="text" class="form-control" name="kuvaus" value=""/>
 		</div>
 		<div class="form-group">
 			<input type="submit" class="btn btn-primary" value="Lisää" />
 			<input type="reset" class="btn btn-danger" value="Tyhjennä" />
 		</div>
-
 	</form:form>
-
-	<a href="/backend/hallinta/kyselyt/${kyselyId}/kysymykset" class="btn btn-secondary">Takaisin</a>
+	</div></div>
+	
+	<a href="/backend/hallinta/kyselyt" class="btn btn-secondary">Takaisin</a>
 
 	</div>
 </body>
