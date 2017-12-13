@@ -9,6 +9,7 @@ Ohjelmistoprojekti I, feedback-kysely
 * [Relaatiokaavio](documents/SWD4TN022-4_Suunta_relaatiokaavio.vsdx) *Päivitetty 20.11.2017 (Kaikki)*
 
 ## Backlogit
+
 *[Sprint 3](documents/Suunta_Sprint3_Backlog.xlsx) *Päivitetty 4.12.2017 (Mikko)*
 *[Sprint 2](documents/Suunta_Sprint2_Backlog.xlsx) *Päivitetty 29.11.2017 (Mikko)*
 *[Sprint 1](documents/Suunta_Sprint1_Backlog.xlsx) *Päivitetty 15.11.2017 (Mikko)*
