@@ -102,7 +102,7 @@ public class KysymysDAO {
 	public void luoUusiMonivalintaKysymys(VaihtoehtoDAO vdao, KysymysMonivalinta kysymys, int kyselyId, List<Vaihtoehto> vaihtoehdot) {
 		final String sql = "INSERT INTO kysymys (teksti, monivalinta, kysely_id) VALUES (?, ?, ?)";
 		final String teksti = kysymys.getTeksti();
-		final boolean monivalinta = true;
+		final boolean monivalinta = kysymys.isMonivalinta();
 		
 		KeyHolder idHolder = new GeneratedKeyHolder();
 		

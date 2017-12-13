@@ -58,7 +58,7 @@ public class KysymysController {
 	// JSP, Uuden kysymyksen luonti
 	// Muoto: monivalinta
 	@RequestMapping(value="hallinta/kyselyt/{kyselyId}/lisaaMonivalinta", method=RequestMethod.POST)
-	public String luoUusiKysymysMonivalinta(Model model, VaihtoehtoDAO vdao, @PathVariable int kyselyId, @ModelAttribute(value="kysymysMv") KysymysMonivalinta kysymys, @RequestParam("vaihtoehto") List<String> vaihtoehtoKentat) {
+	public String luoUusiKysymysMonivalinta(Model model, VaihtoehtoDAO vdao, @PathVariable int kyselyId, @ModelAttribute(value="kysymysMv") KysymysMonivalinta kysymys, @RequestParam("vaihtoehto") List<String> vaihtoehtoKentat, @RequestParam("monivalinta") boolean monivalinta) {
 		model.addAttribute("kysymys", kysymys);
 		
 		List<Vaihtoehto> vaihtoehdot = new ArrayList<Vaihtoehto>(3);
