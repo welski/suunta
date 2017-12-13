@@ -12,8 +12,8 @@
 	<meta name="viewport"
 		content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	
-	<link rel="stylesheet" type="text/css" href="../../../resources/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="../../../resources/css/backend.css">
+	<link rel="stylesheet" type="text/css" href="../../../../../resources/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../../../../../resources/css/backend.css">
 	<link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
 	
 	<title>Vastaukset</title>
@@ -55,7 +55,7 @@
 					</tbody>
 				</table>
 				
-				<a href="/backend/hallinta/kysymykset/${id}" class="btn btn-secondary">Takaisin</a>
+				<a href="/backend/hallinta/kyselyt/${kyselyId}/kysymykset" class="btn btn-secondary">Takaisin</a>
 			</div>
 	</body>
 </html>

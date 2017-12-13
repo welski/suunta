@@ -12,8 +12,8 @@
 	<meta name="viewport"
 		content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	
-	<link rel="stylesheet" type="text/css" href="../../resources/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="../../resources/css/backend.css">
+	<link rel="stylesheet" type="text/css" href="../../../resources/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../../../resources/css/backend.css">
 	<link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
 	
 	<title>Kysymykset</title>
@@ -54,7 +54,7 @@
 							<tr>
 								<th scope="row"><c:out value="${kysymys.id}"/></th>
 								<td><c:out value="${kysymys.teksti}"/></td>
-								<td><a href="<c:out value="${kysymys.id}"/>/vastaukset" >Vastaukset</a></td>
+								<td><a href="kysymykset/<c:out value="${kysymys.id}"/>/vastaukset" >Vastaukset</a></td>
 							</tr>
 							
 						</c:forEach>
@@ -64,6 +64,8 @@
 			<div class="form-group">
 			<a href="/backend/hallinta/kyselyt/<c:out value="${kyselyId}" />/lisaaMonivalinta" class="btn btn-primary">Lisää monivalintakysymys</a>
 			<a href="/backend/hallinta/kyselyt/<c:out value="${kyselyId}" />/lisaaTeksti" class="btn btn-danger">Lisää tekstikysymys</a>
+			<br><br>
+			<a href="/backend/hallinta/kyselyt" class="btn btn-secondary">Takaisin</a>
 			</div>
 		</div>
 	</body>

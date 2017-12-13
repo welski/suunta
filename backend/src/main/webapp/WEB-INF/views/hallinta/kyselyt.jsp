@@ -65,13 +65,22 @@
 						<td><c:out value="${kysely.kuvaus}" /></td>
 						<td></td>							
 						<td>
-							<a href="kysymykset/<c:out value="${kysely.id}" />">
+							<a href="kyselyt/<c:out value="${kysely.id}/kysymykset" />">
 							Näytä kysymykset</a>
 						</td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
+		<div class="row">
+			<div class="col">
+				<h1 class="otsikko">
+				Lisää uusi kysely
+				</h1>
+			</div>
+		</div>
+		<div class="row">
+		<div class="col">
 	<form:form modelAttribute="kysely" method="post">
 		<div class="form-group">
 			<label for="nimi">Nimi:</label>
@@ -85,8 +94,9 @@
 			<input type="submit" class="btn btn-primary" value="Lisää" />
 			<input type="reset" class="btn btn-danger" value="Tyhjennä" />
 		</div>
-
 	</form:form>
+	</div></div>
+	
 
 	</div>
 </body>

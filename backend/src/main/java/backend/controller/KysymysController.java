@@ -74,10 +74,9 @@ public class KysymysController {
 	}
 
 	// Kysymyslista ja vaihtoehtolista
-	@RequestMapping("hallinta/kysymykset/{id}")
-	public String naytaKysymyslista(Model model, @PathVariable int id) {
-		List<Kysymys> kysymykset = dao.haeKaikki(vdao, id);
-		int kyselyId = id;
+	@RequestMapping("hallinta/kyselyt/{kyselyId}/kysymykset")
+	public String naytaKysymyslista(Model model, @PathVariable int kyselyId) {
+		List<Kysymys> kysymykset = dao.haeKaikki(vdao, kyselyId);
 		
 		List<Vaihtoehto> vaihtoehdot = new ArrayList<>();
 		
